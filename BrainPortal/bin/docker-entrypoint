@@ -1,5 +1,19 @@
 #!/bin/bash -e
 
+# SSH agents never survive a container restart: remove leftover sockets
+# whose agent is gone, otherwise z000_ensure_we_have_a_local_ssh_agent
+# refuses to create a new agent over them. A live agent (e.g. the server's,
+# when this is a 'docker compose run' console) is left alone.
+# ssh-add exits with 2 when it cannot reach the agent.
+for sock in tmp/sockets/ssh-agent.*.sock; do
+  [ -e "$sock" ] || continue
+  rc=0; SSH_AUTH_SOCK="$sock" ssh-add -l >/dev/null 2>&1 || rc=$?
+  if [ "$rc" -eq 2 ]; then
+    name="${sock#tmp/sockets/ssh-agent.}"; name="${name%.sock}"
+    rm -f "$sock" tmp/"$name"@*.agent.bashrc
+  fi
+done
+
 # If running the rails server then create or migrate existing database
 if [ "${@: -2:1}" == "./bin/rails" ] && [ "${@: -1:1}" == "server" ]; then
   ./bin/rails db:prepare

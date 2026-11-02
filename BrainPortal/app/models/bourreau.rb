@@ -351,12 +351,12 @@ class Bourreau < RemoteResource
   def build_db_yml_for_tunnel(railsenv) #:nodoc:
     myconfig = self.class.current_resource_db_config(railsenv) # a copy of the active config
 
-    myconfig.delete "host"
-    myconfig.delete "port"
-    myconfig["socket"] = 'SUBSTITUTED_BY_BOURREAU_AT_BOOT_TIME'
+    myconfig.delete :host
+    myconfig.delete :port
+    myconfig[:socket] = 'SUBSTITUTED_BY_BOURREAU_AT_BOOT_TIME'
 
     ymlstruct = Hash.new
-    ymlstruct[railsenv.to_s] = myconfig.to_h
+    ymlstruct[railsenv.to_s] = myconfig.to_h.stringify_keys
 
     yml = "\n" +
           "#\n" +

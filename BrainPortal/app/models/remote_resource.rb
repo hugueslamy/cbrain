@@ -287,8 +287,8 @@ class RemoteResource < ApplicationRecord
     if ! self.use_reverse_service?
       # Setup DB reverse tunnel
       myconfig        = self.class.current_resource_db_config
-      local_db_host   = myconfig["host"]  || "localhost"
-      local_db_port   = (myconfig["port"] || "3306").to_i
+      local_db_host   = myconfig[:host]  || "localhost"
+      local_db_port   = (myconfig[:port] || "3306").to_i
       rnd             = 1000000+rand(9999999)
       master.add_tunnel(:reverse,
         (Pathname.new(self.ssh_control_rails_dir) + "tmp/sockets/db.#{rnd}.sock").to_s,

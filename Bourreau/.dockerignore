@@ -1,0 +1,5 @@
+/log/*
+/tmp/*
+/spec
+/user_keys/*
+.env*
