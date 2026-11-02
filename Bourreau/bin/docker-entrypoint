@@ -1,0 +1,43 @@
+#!/bin/bash -e
+
+# Runs as root, then hands over to sshd.
+
+home=/home/cbrain
+
+# Generate the SSH host keys once; they are kept in a volume so the
+# portal's known_hosts stays valid when this container is rebuilt
+hostkeys=/etc/ssh/hostkeys
+mkdir -p "$hostkeys"
+for type in ed25519 ecdsa rsa; do
+  [ -f "$hostkeys/ssh_host_${type}_key" ] ||
+    ssh-keygen -q -t "$type" -N '' -C "root@bourreau" -f "$hostkeys/ssh_host_${type}_key"
+done
+
+# Authorize the portal's CBRAIN key for user 'cbrain'
+if [ -f /run/cbrain/portal_key.pub ]; then
+  install -o cbrain -g cbrain -m 600 /run/cbrain/portal_key.pub "$home/.ssh/authorized_keys"
+else
+  echo "Warning: /run/cbrain/portal_key.pub is missing; the portal will not be able to connect." >&2
+fi
+
+# SSH sessions don't inherit the Docker environment: save what the
+# Bourreau needs; ~/.bashrc sources this file.
+{
+  for var in PATH GEM_HOME BUNDLE_APP_CONFIG BUNDLE_JOBS RAILS_ENV CBRAIN_RAILS_APP_NAME LANG; do
+    [ -n "${!var}" ] && printf 'export %s=%q\n' "$var" "${!var}"
+  done
+} > "$home/.cbrain_docker_env"
+chown cbrain:cbrain "$home/.cbrain_docker_env"
+
+# The portal sends config/database.yml at each start and cbrain_remote_ctl
+# deletes it when the Bourreau stops. A copy left at container boot is from
+# a start cut off by a restart: remove it, or the next start would use it
+# instead of the one the portal sends.
+rm -f /cbrain/Bourreau/config/database.yml
+
+# Cache and task work directories (paths to enter in the portal's server form)
+mkdir -p "$home/data/cache" "$home/data/work"
+chown cbrain:cbrain "$home/data" "$home/data/cache" "$home/data/work"
+chmod 700 "$home/data/cache"
+
+exec "$@"

@@ -1,0 +1,10 @@
+/.git
+/log/*
+/tmp/*
+/storage/*
+/data_dumps/*
+/user_keys/*
+/public/assets
+/spec
+/test_api
+.env*
