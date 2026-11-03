@@ -23,6 +23,7 @@ FROM ruby:${RUBY_VERSION}
 #   rsync                       : Data Provider synchronization
 #   netcat-openbsd, iproute2    : socket checks in script/cbrain_remote_ctl (nc, ss)
 #   procps                      : ps, used to find workers
+#   python3-venv                : virtual environment for Boutiques (bosh)
 RUN apt-get update -qq && \
     apt-get install --no-install-recommends -y \
       build-essential \
@@ -35,8 +36,16 @@ RUN apt-get update -qq && \
       rsync \
       netcat-openbsd \
       iproute2 \
-      procps && \
+      procps \
+      python3-venv && \
     rm -rf /var/lib/apt/lists/* /var/cache/apt/archives
+
+# Boutiques: Bourreaux run 'bosh exec simulate' and 'bosh exec launch' for
+# Boutiques tasks. /usr/local/bin is in the PATH of SSH sessions and job scripts.
+ARG BOUTIQUES_VERSION=0.5.33
+RUN python3 -m venv /opt/boutiques && \
+    /opt/boutiques/bin/pip install --no-cache-dir "boutiques==${BOUTIQUES_VERSION}" && \
+    ln -s /opt/boutiques/bin/bosh /usr/local/bin/bosh
 
 # Same UID/GID as the host user, so files written in the bind-mounted
 # repository are not owned by root
