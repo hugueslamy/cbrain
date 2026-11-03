@@ -16,3 +16,5 @@ Gemfile.lock
 # Ignore key files for decrypting credentials and more.
 /config/*.key
 
+# Ignore tmp directory
+/tmp/local_secret.txt
