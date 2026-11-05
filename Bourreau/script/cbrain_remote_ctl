@@ -86,9 +86,16 @@ if ! test -f "app/models/bourreau_worker.rb" ; then
   fatal "This program '$0' must be started from the Bourreau directory."
 fi
 
-# Try to find the name of the Bourreau, from a Ruby file. Brittle.
+# Find the name of the Bourreau, with the same precedence as Rails
+# (cbrain_system_checks.rb): the CBRAIN_RAILS_APP_NAME environment
+# variable first, then the constant in config_bourreau.rb (brittle grep).
 # We set it in an environement variable so that other sub processes can use it.
-export BOURREAU_NAME=$(grep '^ *CBRAIN_RAILS_APP_NAME' config/initializers/config_bourreau.rb | cut -d= -f2 | tr -cd a-zA-Z0-9- )
+if test -n "$CBRAIN_RAILS_APP_NAME" ; then
+  BOURREAU_NAME="$CBRAIN_RAILS_APP_NAME"
+else
+  BOURREAU_NAME=$(grep '^ *CBRAIN_RAILS_APP_NAME' config/initializers/config_bourreau.rb 2>/dev/null | cut -d= -f2)
+fi
+export BOURREAU_NAME=$(echo "$BOURREAU_NAME" | tr -cd a-zA-Z0-9_- )
 
 # Run-time paths and names of host and program
 basename=$(basename $0)

@@ -21,6 +21,7 @@
 #
 
 source "https://rubygems.org"
+ruby file:  ".ruby-version"
 
 #----------------------
 # In the :default group

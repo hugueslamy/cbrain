@@ -4,6 +4,17 @@
 
 home=/home/cbrain
 
+# Gemfile.lock is not in git: a fresh clone has none. Resolving the bundle
+# again could pick newer gem versions or git revisions than the image has,
+# so a checkout without a lock gets the image's. Then install what is still
+# missing (e.g. after a Gemfile change), as 'cbrain' (owner of the bundle),
+# before the portal starts Rails over SSH.
+cd /cbrain/Bourreau
+[ -f Gemfile.lock ] ||
+  runuser -u cbrain -- cp -n /usr/local/share/cbrain/Gemfile.lock Gemfile.lock 2>/dev/null || true
+runuser -u cbrain -- bundle check >/dev/null 2>&1 ||
+  runuser -u cbrain -- bundle install --quiet
+
 # Generate the SSH host keys once; they are kept in a volume so the
 # portal's known_hosts stays valid when this container is rebuilt
 hostkeys=/etc/ssh/hostkeys
@@ -35,9 +46,28 @@ chown cbrain:cbrain "$home/.cbrain_docker_env"
 # instead of the one the portal sends.
 rm -f /cbrain/Bourreau/config/database.yml
 
-# Cache and task work directories (paths to enter in the portal's server form)
-mkdir -p "$home/data/cache" "$home/data/work"
-chown cbrain:cbrain "$home/data" "$home/data/cache" "$home/data/work"
-chmod 700 "$home/data/cache"
+# Cache and task work directories, and the files of the 'bourreau_data'
+# Data Provider (paths set in the records by the portal's db/seeds_docker.rb).
+# One directory per Bourreau name: the UNIX and Slurm setups share this
+# volume, and CBRAIN refuses a cache directory used by another server.
+bdir="$home/data/${CBRAIN_RAILS_APP_NAME:?must be set}"
+mkdir -p "$bdir/cache" "$bdir/work" "$home/data/dp"
+chown cbrain:cbrain "$home/data" "$bdir" "$bdir/cache" "$bdir/work" "$home/data/dp"
+chmod 700 "$bdir/cache"
+
+# Munge authenticates this login node to the emulated Slurm cluster
+# (docker/slurm). All Slurm containers share one key, in the munge_key
+# volume; the first container to boot creates it (mv -n: no overwrite).
+shared_key=/etc/munge-shared/munge.key
+if [ -d /etc/munge-shared ]; then
+  if [ ! -s "$shared_key" ]; then
+    dd if=/dev/urandom bs=1 count=1024 status=none > "$shared_key.$$"
+    mv -n "$shared_key.$$" "$shared_key"
+    rm -f "$shared_key.$$"
+  fi
+  install -o munge -g munge -m 400 "$shared_key" /etc/munge/munge.key
+  install -d -o munge -g munge -m 755 /run/munge
+  runuser -u munge -- /usr/sbin/munged
+fi
 
 exec "$@"

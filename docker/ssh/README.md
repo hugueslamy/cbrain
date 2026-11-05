@@ -1,7 +1,7 @@
 # CBRAIN SSH key for Docker development
 
 The portal uses this key pair to SSH to the Bourreau container.
-It is mounted into both containers by `docker-compose.yml`; the key files
+It is mounted into both containers by `docker-compose.unix.yml`; the key files
 themselves are ignored by git.
 
 Create it once, from the repository root, **before** the first `docker compose up`

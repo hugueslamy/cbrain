@@ -1,0 +1,127 @@
+# CBRAIN development environment, Slurm setup: merged over
+# docker-compose.unix.yml (see docker-compose.yml), not usable alone.
+# Directly: docker compose -f docker-compose.unix.yml -f docker-compose.slurm.yml ...
+#
+# Adds an emulated HPC; details in docker/slurm/README.md. The Bourreau,
+# 'bourreau_slurm', becomes the login node: it submits the tasks with
+# sbatch, and they run on compute node c1, which sees the same
+# /home/cbrain/data (work directories and Data Provider caches) as a
+# cluster's shared filesystem. Science tools exist only on c1: through
+# 'module load' (ToolConfig prologue), or in an Apptainer image (ToolConfig
+# container settings; the Bourreau builds the image, c1 runs it).
+# Configuration: docker/slurm/etc.
+
+
+services:
+  # Changes to the services of docker-compose.unix.yml
+
+  web:
+    environment:
+      CBRAIN_DOCKER_BOURREAU_NAME: bourreau_slurm
+      CBRAIN_DOCKER_BOURREAU_CMS: ScirSlurm
+
+  bourreau:
+    # A login node: the tasks run on c1, and 'apptainer build' (task
+    # setup) needs no privileges
+    privileged: false
+    networks:
+      - hpc_net
+    environment:
+      CBRAIN_RAILS_APP_NAME: bourreau_slurm
+    volumes:
+      # The cluster's client config and munge key
+      - ./docker/slurm/etc/slurm.conf:/etc/slurm/slurm.conf:ro
+      - munge_key:/etc/munge-shared
+
+  # The emulated cluster
+
+  # Accounting database of slurmdbd (for sacct), separate from CBRAIN's
+  slurmdb:
+    # Pinned: Slurm 24.11's stored procedures fail on MariaDB 13 (SQL error 1064)
+    image: mariadb:11.4
+    restart: unless-stopped
+    environment:
+      MARIADB_RANDOM_ROOT_PASSWORD: "yes"
+      MARIADB_DATABASE: slurm_acct_db
+      MARIADB_USER: slurm
+      MARIADB_PASSWORD: slurm_pw  # also in docker/slurm/etc/slurmdbd.conf.in
+    volumes:
+      - slurmdb_data:/var/lib/mysql
+    networks:
+      - slurmdb_net
+    healthcheck:
+      test: ["CMD", "healthcheck.sh", "--connect", "--innodb_initialized"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+
+  slurmdbd:
+    image: cbrain-slurm
+    build: &slurm_build
+      context: ./docker/slurm
+      dockerfile: Dockerfile
+      args:
+        CBRAIN_UID: ${CBRAIN_UID:-1000}
+        CBRAIN_GID: ${CBRAIN_GID:-1000}
+    hostname: slurmdbd
+    restart: unless-stopped
+    depends_on:
+      slurmdb:
+        condition: service_healthy
+    command: ["slurmdbd"]
+    volumes:
+      # Not /etc/slurm: the entrypoint installs slurmdbd.conf there (mode 600)
+      - ./docker/slurm/etc:/etc/slurm-src:ro
+      - munge_key:/etc/munge-shared
+    networks:
+      - slurmdb_net
+      - hpc_net
+
+  slurmctld:
+    image: cbrain-slurm
+    build: *slurm_build
+    hostname: slurmctld
+    restart: unless-stopped
+    depends_on:
+      - slurmdbd
+    command: ["slurmctld"]
+    volumes:
+      - ./docker/slurm/etc:/etc/slurm:ro
+      - munge_key:/etc/munge-shared
+      - slurmctld_state:/var/spool/slurmctld
+    networks:
+      - hpc_net
+
+  # Compute node. Its name must match NodeName in slurm.conf.
+  c1:
+    image: cbrain-slurm
+    build: *slurm_build
+    hostname: c1
+    restart: unless-stopped
+    depends_on:
+      - slurmctld
+    command: ["slurmd"]
+    # For Apptainer's setuid starter (mounts, namespaces) in the jobs: the
+    # unprivileged mode is not possible here, see docker/slurm/Dockerfile.
+    # This container is a dev-only emulator; never do this in production.
+    privileged: true
+    volumes:
+      - ./docker/slurm/etc:/etc/slurm:ro
+      - munge_key:/etc/munge-shared
+      # The cluster's shared filesystem: same path as on the Bourreau
+      - bourreau_data:/home/cbrain/data
+    networks:
+      - hpc_net
+
+networks:
+  # Inside the emulated cluster: login node (bourreau), controller, compute nodes
+  hpc_net:
+    internal: true
+  # slurmdbd <-> its accounting database
+  slurmdb_net:
+    internal: true
+
+volumes:
+  munge_key:
+  slurmdb_data:
+  slurmctld_state:

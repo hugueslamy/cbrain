@@ -1,0 +1,182 @@
+name: cbrain
+
+# CBRAIN development environment, UNIX setup: the portal and one Bourreau,
+# 'bourreau_unix', which runs the tasks in its own container (cluster type
+# UNIX), with Apptainer for tools that have a container image.
+# Selected by docker-compose.yml; docker-compose.slurm.yml is merged over
+# this file for the Slurm setup. Installation and usage: docker/README.md.
+#
+# The whole repository is mounted at /cbrain in both Rails containers:
+# the Bourreau's models and plugins are symlinks into ../BrainPortal.
+#
+# Published ports, changeable in the environment or a .env file:
+#   CBRAIN_PORTAL_PORT  (default 3000)  portal, http://localhost:3000
+#   CBRAIN_ADMINER_PORT (default 8080)  Adminer, http://127.0.0.1:8080
+
+
+services:
+  db:
+    image: mariadb:latest
+    restart: unless-stopped
+    environment:
+      MARIADB_ROOT_PASSWORD: ${MARIADB_ROOT_PASSWORD:-cbrain_root_pw}
+      MARIADB_DATABASE: ${CBRAIN_DB_NAME:-cbrain_dev}
+      MARIADB_USER: ${CBRAIN_DB_USER:-cbrain}
+      MARIADB_PASSWORD: ${CBRAIN_DB_PASSWORD:-cbrain_pw}
+    command: ["--character-set-server=utf8mb4", "--collation-server=utf8mb4_unicode_ci"]
+    volumes:
+      - db_data:/var/lib/mysql
+      # Run once, on a new db_data volume: creates cbrain_test for the 'test' service
+      - ./docker/db/initdb:/docker-entrypoint-initdb.d:ro
+    # No published port: only the portal and Adminer reach the DB
+    networks:
+      - db_net
+    healthcheck:
+      test: ["CMD", "healthcheck.sh", "--connect", "--innodb_initialized"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+
+  web:
+    image: cbrain-web
+    build: &portal_build
+      context: ./BrainPortal
+      dockerfile: Dockerfile
+      args:
+        RUBY_VERSION: 4.0.9
+        CBRAIN_UID: ${CBRAIN_UID:-1000}
+        CBRAIN_GID: ${CBRAIN_GID:-1000}
+    # Fixed hostname: CBRAIN names its SSH agent files after the host
+    hostname: portal
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      RAILS_ENV: development
+      DATABASE_URL: mysql2://cbrain:cbrain_pw@db:3306/cbrain_dev
+      DB_HOST: db
+      DB_NAME: ${CBRAIN_DB_NAME:-cbrain_dev}
+      DB_USER: ${CBRAIN_DB_USER:-cbrain}
+      DB_PASSWORD: ${CBRAIN_DB_PASSWORD:-cbrain_pw}
+      CBRAIN_RAILS_APP_NAME: cbrain_portal
+      # The Bourreau record that db/seeds_docker.rb creates at start; the
+      # name must be the bourreau service's CBRAIN_RAILS_APP_NAME
+      CBRAIN_DOCKER_BOURREAU_NAME: bourreau_unix
+      CBRAIN_DOCKER_BOURREAU_CMS: ScirUnix
+    volumes:
+      - .:/cbrain
+      # ~/.ssh as a volume so known_hosts survives container rebuilds. A
+      # bind-mounted file would not work: ssh rewrites known_hosts by
+      # renaming a new file over it.
+      - portal_ssh:/home/cbrain/.ssh
+      # CBRAIN identity used to SSH to the Bourreau; mounted so it survives
+      # container rebuilds (otherwise the portal generates a new one at boot)
+      - ./docker/ssh/id_cbrain_ed25519:/home/cbrain/.ssh/id_cbrain_ed25519:ro
+      - ./docker/ssh/id_cbrain_ed25519.pub:/home/cbrain/.ssh/id_cbrain_ed25519.pub:ro
+      # The portal's Data Provider cache (/home/cbrain/data/cache)
+      - portal_data:/home/cbrain/data
+    networks:
+      - db_net
+      - cbrain_net
+    ports:
+      - "${CBRAIN_PORTAL_PORT:-3000}:3000"
+    stdin_open: true
+    tty: true
+
+  # Portal RSpec suite, on its own database. The container idles; run specs in it:
+  #   docker compose exec test bundle exec rspec                # whole suite
+  #   docker compose exec test bundle exec rspec spec/models/tool_spec.rb
+  #   docker compose exec -e CI=true test bundle exec rspec     # eager loading, as on CI
+  # Do not run specs with 'exec web': that container has RAILS_ENV=development
+  # and DATABASE_URL pointing at cbrain_dev, which rails_helper does not override.
+  test:
+    image: cbrain-web
+    build: *portal_build
+    restart: unless-stopped
+    # sleep ignores SIGTERM as PID 1; init forwards it so 'stop' doesn't wait 10 s
+    init: true
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      RAILS_ENV: test
+      # Empty CI: eager loading off, as in development (config/environments/test.rb)
+      CI: ""
+      # config/database.yml has no host or credentials for test
+      DATABASE_URL: mysql2://cbrain:cbrain_pw@db:3306/cbrain_test
+      CBRAIN_RAILS_APP_NAME: cbrain_portal
+    volumes:
+      - .:/cbrain
+    networks:
+      - db_net
+    # Prepares cbrain_test (schema, seeds, sanity check) at each start, then idles
+    command: ["bash", "-c", "bundle exec rake db:prepare db:sanity:check && exec sleep infinity"]
+
+  # The Bourreau Rails app is NOT started by this container: the portal
+  # connects with SSH and starts it with script/cbrain_remote_ctl.
+  # This container provides sshd, Ruby, the gems and Apptainer; with the
+  # cluster type UNIX, the tasks run here.
+  bourreau:
+    build:
+      context: ./Bourreau
+      dockerfile: Dockerfile
+      args:
+        RUBY_VERSION: 4.0.9
+        CBRAIN_UID: ${CBRAIN_UID:-1000}
+        CBRAIN_GID: ${CBRAIN_GID:-1000}
+    hostname: bourreau
+    restart: unless-stopped
+    # For Apptainer's setuid starter (mounts, namespaces) in the tasks: the
+    # unprivileged mode is not possible in Docker, see Bourreau/Dockerfile.
+    # Dev-only; never do this in production.
+    privileged: true
+    # Like on a cluster, the Bourreau has no route to the DB: it gets it
+    # through the portal's reverse SSH tunnel (tmp/sockets/db.*.sock).
+    networks:
+      - cbrain_net
+    environment:
+      # Docker env is not seen by SSH sessions: the entrypoint copies these
+      # into ~/.cbrain_docker_env, which ~/.bashrc sources.
+      RAILS_ENV: development
+      # Also names its cache and work directories, /home/cbrain/data/<name>
+      CBRAIN_RAILS_APP_NAME: bourreau_unix
+    volumes:
+      - .:/cbrain
+      - ./docker/ssh/id_cbrain_ed25519.pub:/run/cbrain/portal_key.pub:ro
+      # sshd host keys, kept across rebuilds so they match the portal's
+      # known_hosts. CBRAIN uses StrictHostKeyChecking=no: on a changed host
+      # key, ssh still connects but disables forwarding, and the tunnels fail.
+      - bourreau_hostkeys:/etc/ssh/hostkeys
+      # Cache, work directories and the 'bourreau_data' Data Provider's files
+      - bourreau_data:/home/cbrain/data
+
+  adminer:
+    image: adminer:latest
+    restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      ADMINER_DEFAULT_SERVER: db
+    networks:
+      - db_net
+      - adminer_net
+    ports:
+      # Bound to localhost only: Adminer gives full DB access
+      - "127.0.0.1:${CBRAIN_ADMINER_PORT:-8080}:8080"
+
+networks:
+  # internal: no published ports and no outside access
+  db_net:
+    internal: true
+  # Portal <-> Bourreau, SSH only (stands for the link to the cluster)
+  cbrain_net:
+  # Only carries Adminer's published port, since db_net cannot
+  adminer_net:
+
+volumes:
+  db_data:
+  portal_ssh:
+  bourreau_hostkeys:
+  bourreau_data:
+  portal_data:
