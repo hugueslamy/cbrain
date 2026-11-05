@@ -1,0 +1,15 @@
+# slurmdbd configuration. The entrypoint copies it to /run/slurmdbd.conf
+# with mode 600, owned by 'slurm', as slurmdbd requires.
+# The credentials match the slurmdb service in docker-compose.slurm.yml (dev only).
+
+AuthType=auth/munge
+DbdHost=slurmdbd
+SlurmUser=slurm
+PidFile=/run/slurmdbd.pid
+
+StorageType=accounting_storage/mysql
+StorageHost=slurmdb
+StoragePort=3306
+StorageUser=slurm
+StoragePass=slurm_pw
+StorageLoc=slurm_acct_db

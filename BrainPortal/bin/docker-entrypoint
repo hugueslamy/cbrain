@@ -1,5 +1,15 @@
 #!/bin/bash -e
 
+# Gemfile.lock is not in git: a fresh clone has none. Resolving the bundle
+# again here could pick newer gem versions or git revisions than the image
+# has (aws-partitions is released almost daily), which the 'test' container,
+# without network access, could not install. So a checkout without a lock
+# gets the image's (cp -n: 'web' and 'test' may start together).
+# Then install what is still missing, e.g. after a Gemfile change (needs
+# network access; the bundle belongs to 'cbrain' for this reason).
+[ -f Gemfile.lock ] || cp -n /usr/local/share/cbrain/Gemfile.lock Gemfile.lock 2>/dev/null || true
+bundle check >/dev/null 2>&1 || bundle install --quiet
+
 # SSH agents never survive a container restart: remove leftover sockets
 # whose agent is gone, otherwise z000_ensure_we_have_a_local_ssh_agent
 # refuses to create a new agent over them. A live agent (e.g. the server's,
@@ -14,9 +24,19 @@ for sock in tmp/sockets/ssh-agent.*.sock; do
   fi
 done
 
-# If running the rails server then create or migrate existing database
-if [ "${@: -2:1}" == "./bin/rails" ] && [ "${@: -1:1}" == "server" ]; then
-  ./bin/rails db:prepare
+# Before the Rails server starts (not for consoles or one-off commands),
+# bring the database and plugins up to date. All steps are idempotent:
+#   db:prepare             new database: load the schema and run db/seeds.rb
+#                          (admin user, with a random password printed in the
+#                          logs, and the portal record); existing one: migrate
+#   db:sanity:check        the portal refuses to boot until it has been run
+#   cbrain:plugins:install symlinks of the plugins in cbrain_plugins/ (shared
+#                          with the Bourreau, whose cbrain_plugins is a symlink)
+#   db:seed:docker         Bourreau and Data Provider of this Docker setup
+#                          (db/seeds_docker.rb); creates missing records only
+# One rake run: CBRAIN skips its boot checks for db: and cbrain:plugins tasks.
+if [ "$1" == "./bin/rails" ] && [ "$2" == "server" ]; then
+  bundle exec rake db:prepare db:sanity:check cbrain:plugins:install:all db:seed:docker
 fi
 
 exec "${@}"

@@ -57,10 +57,14 @@ ENV RAILS_ENV="development" \
 
 # Install gems; the lock is optional (the glob matches nothing if absent).
 # The bundle belongs to 'cbrain' so Bundler can update it at runtime.
-COPY Gemfile Gemfile.lock* ./
+# The resolved lock is kept outside the app directory, which the checkout
+# hides when bind-mounted: the entrypoint gives it to a checkout that has
+# none, so the containers use the gems installed here (see bin/docker-entrypoint).
+COPY Gemfile Gemfile.lock* .ruby-version ./
 RUN gem update --system --no-document && \
     gem install bundler --no-document && \
     bundle install && \
+    install -D -m 644 Gemfile.lock /usr/local/share/cbrain/Gemfile.lock && \
     chown -R cbrain:cbrain /usr/local/bundle
 
 # Application code (in development it is also bind-mounted by docker-compose)
