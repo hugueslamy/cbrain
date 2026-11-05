@@ -6,42 +6,54 @@
 
 # Ignore bundler config.
 /.bundle
+/vendor/bundle
 
-# Ignore all environment files.
+# Ignore all environment files & secrets.
 /.env*
+/config/*.key
+/config/credentials/*.key
+/docker-compose.override.yml
 
-# Ignore all logfiles and tempfiles.
+# Ignore all logfiles
 /log/*
-/tmp/*
 !/log/.keep
-!/tmp/.keep
 
-# Ignore pidfiles, but keep the directory.
-/tmp/pids/*
-!/tmp/pids/
+# Ignore Temp files
+/tmp/*
+!/tmp/.keep
 !/tmp/pids/.keep
+!/tmp/storage/.keep
 
 # Ignore storage (uploaded files in development and any SQLite databases).
 /storage/*
 !/storage/.keep
-/tmp/storage/*
-!/tmp/storage/
-!/tmp/storage/.keep
 
+# Ignore generated schema dump — keep only schema.rb
+/db/schema.rb.lock
+
+# Assets build output
 /public/assets
-
-# Ignore key files for decrypting credentials and more.
-/config/*.key
-
-# CBRAIN added ignore rules
-Gemfile.lock
-/public/assets
+/app/assets/builds/*
+!/app/assets/builds/.keep
 
 # This will be removed/adjusted in a future CBRAIN release
 /seeds_dev_support_dir
 
-
-/app/assets/builds/*
-!/app/assets/builds/.keep
-
+# Node (if ever added)
 /node_modules
+/.yarn
+
+# macOS
+.DS_Store
+
+# Editor
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Test coverage
+/coverage
+
+# Kamal deploy lock
+/.kamal/lock
