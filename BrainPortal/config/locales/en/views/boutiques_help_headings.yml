@@ -1,11 +1,12 @@
+---
 en:
   boutiques_help_headings:
-    description: "Description"
-    author: "Tool Author:"
-    doi: "Tool DOI:"
-    url: "Tool URL:"
-    descriptor: "Boutiques Descriptor:"
-    parameters: "Parameters"
-    inputs: "Input files"
-    outputs: "Output files"
-    multiple: "Launching Multiple Tasks"
+    author: 'Tool Author:'
+    description: Description
+    descriptor: 'Boutiques Descriptor:'
+    doi: 'Tool DOI:'
+    inputs: Input files
+    multiple: Launching Multiple Tasks
+    outputs: Output files
+    parameters: Parameters
+    url: 'Tool URL:'

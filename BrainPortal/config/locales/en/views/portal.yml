@@ -1,42 +1,40 @@
+---
 en:
   portal:
-    common:
-      name_description: "Name and description"
-      availability: "Availability"
-      open: "Generally open"
-      restricted: "Restricted/on demand"
-    logo_footer:
-      supported_by: "Supported By The Following Organizations"
     about_us:
-      title: "About"
-      header: "About Us"
-      platform_revision: "Platform Revision Information"
-      last_author: "Portal Last Changed Author:"
-      last_revision: "Portal Last Changed Revision:"
-      last_changed: "Portal Last Changed Date:"
+      credits: credits
+      credits_link_html: Credits for the project can be found on the %{credits_link} page, as well as in the %{github_link} page.
+      env_vars: Environment Variables
+      error_getting_license: Error getting license file.
+      github_contributors: GitHub contributors
+      gnu_desc_html: The CBRAIN code base is distributed under the GNU Public License (GPL).<br />Copyright Alan C. Evans - McGill University 2008-2022<br />A copy of the text of the license can be found here.
+      gnu_license: GNU Public License
+      header: About Us
+      last_author: 'Portal Last Changed Author:'
+      last_changed: 'Portal Last Changed Date:'
+      last_revision: 'Portal Last Changed Revision:'
+      licensing_info: Licensing Information
+      other_desc_html: Some packages or libraries developed by external entities<br />are used in the CBRAIN code base; here is a summary of their<br />respective licenses.
+      other_licenses: Other licenses
+      platform_info: Platform Information
+      platform_revision: Platform Revision Information
+      plugins_package: 'Plugins Package: %{plugin}'
+      plugins_revision_header: CBRAIN Plugins Revision Information
+      title: About
       up_since_html: "<strong>Portal Up Since:</strong> %{started_at} (for: %{uptime})"
-      plugins_revision_header: "CBRAIN Plugins Revision Information"
-      plugins_package: "Plugins Package: %{plugin}"
-      platform_info: "Platform Information"
-      env_vars: "Environment Variables"
-      licensing_info: "Licensing Information"
-      credits_link_html: "Credits for the project can be found on the %{credits_link} page, as well as in the %{github_link} page."
-      credits: "credits"
-      github_contributors: "GitHub contributors"
-      gnu_license: "GNU Public License"
-      gnu_desc_html: "The CBRAIN code base is distributed under the GNU Public License (GPL).<br />Copyright Alan C. Evans - McGill University 2008-2022<br />A copy of the text of the license can be found here."
-      other_licenses: "Other licenses"
-      other_desc_html: "Some packages or libraries developed by external entities<br />are used in the CBRAIN code base; here is a summary of their<br />respective licenses."
-      error_getting_license: "Error getting license file."
     available:
-      title: "List of tools and datasets"
-      note_html: "These tables list all tools and datasets configured on this CBRAIN portal.<br />Not all of them are available to all users."
+      note_html: These tables list all tools and datasets configured on this CBRAIN portal.<br />Not all of them are available to all users.
+      title: List of tools and datasets
+    common:
+      availability: Availability
+      name_description: Name and description
+      open: Generally open
+      restricted: Restricted/on demand
     credits:
-      title: "Credits"
       headings:
-        citing: "Citing CBRAIN"
-        project_info: "CBRAIN Project Information"
-        credits_box: "Software Development Credits"
+        citing: Citing CBRAIN
+        credits_box: Software Development Credits
+        project_info: CBRAIN Project Information
       paragraphs:
         citing_html: |
           Results published from data gathered or processed with a CBRAIN
@@ -51,10 +49,6 @@ en:
             <a class="action_link" target="_blank" href="http://journal.frontiersin.org/article/10.3389/fninf.2014.00054/abstract">Front. Neuroinform. 8:54. doi: 10.3389/fninf.2014.00054</a>
 
           </div>
-        project_info_html: |
-          This platform's origin and purpose is described further at the <a class="action_link" href="http://mcin-cnim.ca/neuroimagingtechnologies/cbrain/">MCIN website</a> (McGill Centre for Integrative Neuroscience).<br>
-
-          The code for the project is maintained and distributed on <a class="action_link" href="https://github.com/aces/cbrain">GitHub</a>.
         credits_box_html: |
           <ul type="none">
             <li><strong>Principal Investigator:</strong> Alan C. Evans, Montreal Neurological Institute, McGill University</li>
@@ -72,33 +66,41 @@ en:
           <p>
           The CBRAIN team would like to thank all users of the <strong>original CBRAIN service</strong>
           at McGill for their invaluable feedback and support.
+        project_info_html: |
+          This platform's origin and purpose is described further at the <a class="action_link" href="http://mcin-cnim.ca/neuroimagingtechnologies/cbrain/">MCIN website</a> (McGill Centre for Integrative Neuroscience).<br>
+
+          The code for the project is maintained and distributed on <a class="action_link" href="https://github.com/aces/cbrain">GitHub</a>.
+      title: Credits
+    logo_footer:
+      supported_by: Supported By The Following Organizations
     portal_log:
-      title: "Portal Logs"
       filters:
-        lines_to_show_html: "Number of lines to show: %{dropdown}"
-        min_request_time_html: "Minimum request time: %{dropdown} ms"
-        filter: "Filter:"
-        by_user_html: "By user: %{dropdown}"
-        by_instance_html: "By instance name: %{textfield}"
-        by_method_html: "By method: %{dropdown}"
-        by_controller_html: "By controller: %{dropdown}"
+        by_controller_html: 'By controller: %{dropdown}'
+        by_instance_html: 'By instance name: %{textfield}'
+        by_method_html: 'By method: %{dropdown}'
+        by_user_html: 'By user: %{dropdown}'
+        filter: 'Filter:'
+        lines_to_show_html: 'Number of lines to show: %{dropdown}'
+        min_request_time_html: 'Minimum request time: %{dropdown} ms'
+      title: Portal Logs
       toggles:
-        hide_lines: "Hide lines:"
-        started_html: "'Started': %{checkbox}"
-        processing_html: "'Processing': %{checkbox}"
-        parameters_html: "'Parameters': %{checkbox}"
-        rendered_html: "'Rendered': %{checkbox}"
-        redirected_html: "'Redirected': %{checkbox}"
-        user_html: "'User': %{checkbox}"
-        completed_html: "'Completed': %{checkbox}"
-        sql_html: "'SQL': %{checkbox}"
-        load_html: "'Load': %{checkbox}"
-        exists_html: "'Exists': %{checkbox}"
         cache_html: "'CACHE': %{checkbox}"
+        completed_html: "'Completed': %{checkbox}"
+        exists_html: "'Exists': %{checkbox}"
+        hide_lines: 'Hide lines:'
+        load_html: "'Load': %{checkbox}"
+        parameters_html: "'Parameters': %{checkbox}"
+        processing_html: "'Processing': %{checkbox}"
+        redirected_html: "'Redirected': %{checkbox}"
+        rendered_html: "'Rendered': %{checkbox}"
+        sql_html: "'SQL': %{checkbox}"
+        started_html: "'Started': %{checkbox}"
+        user_html: "'User': %{checkbox}"
     provenance:
-      title: "Provenance"
+      footer:
+        last_updated_html: "<small>Document last updated: %{date}</small>"
       headings:
-        statement: "CBRAIN Provenance Statement"
+        statement: CBRAIN Provenance Statement
       paragraphs:
         statement_html: |
           New features and bug fixes are tested and released into the
@@ -129,12 +131,33 @@ en:
           are available in the CBRAIN GitHub repository.
 
           <p>
-      footer:
-        last_updated_html: "<small>Document last updated: %{date}</small>"
+      title: Provenance
     report:
-      title: "Tabular Reports"
+      actions:
+        flip_btn: Flip Rows/Columns
+        generate_btn: Generate Report
+        lookup_btn: Lookup columns and rows
+        refresh_btn: Refresh Report
+      counters:
+        entry:
+          one: 1 entry
+          other: "%{count} entries"
+        file:
+          one: 1 file
+          other: "%{count} files"
+        file_unk:
+          one: 1 file w/ unk size
+          other: "%{count} files w/ unk size"
+        total: Total
+      empty_state:
+        no_objects_html: There are %{no_objects} found for this report.<br />Try with other reporting parameters.
+        no_objects_red: no objects
+        waiting_html: The report will appear here once you've selected<br /> the proper table content and types for the rows and columns.
       headings:
-        main: "Automatic Tabular Report Maker"
+        main: Automatic Tabular Report Maker
+      notes:
+        date_html: "<small>(Note: the links in the report will NOT include the date restrictions)</small>"
+        optional_fix_html: "<strong>Optional:</strong> fix some attributes:"
       paragraphs:
         steps_html: |
           <p class="medium_paragraphs">
@@ -160,80 +183,61 @@ en:
             </li>
           </ul>
       report_types:
+        dp_count: Data Providers - count
+        du_copies: Data Usage - file copies
+        du_downloads: Data Usage - file downloads
+        du_processed: Data Usage - processed
+        du_views: Data Usage - file views
+        files_combined: Files - combined report
+        files_count: Files - count
+        files_sum: Files - sum of sizes
+        files_total: Files - total files in collections
+        projects_count: Projects - count
         select: "(Select the report type)"
-        files_count: "Files - count"
-        files_sum: "Files - sum of sizes"
-        files_total: "Files - total files in collections"
-        files_combined: "Files - combined report"
-        tasks_count: "Tasks - count"
-        tasks_sum: "Tasks - sum of workdir space"
-        tasks_combined: "Tasks - combined report"
-        servers_count: "Servers - count"
-        dp_count: "Data Providers - count"
-        users_count: "Users - count"
-        projects_count: "Projects - count"
-        tools_count: "Tools - count"
-        tv_count: "Tool Versions - count"
-        du_views: "Data Usage - file views"
-        du_downloads: "Data Usage - file downloads"
-        du_copies: "Data Usage - file copies"
-        du_processed: "Data Usage - processed"
-      actions:
-        lookup_btn: "Lookup columns and rows"
-        refresh_btn: "Refresh Report"
-        flip_btn: "Flip Rows/Columns"
-        generate_btn: "Generate Report"
+        servers_count: Servers - count
+        tasks_combined: Tasks - combined report
+        tasks_count: Tasks - count
+        tasks_sum: Tasks - sum of workdir space
+        tools_count: Tools - count
+        tv_count: Tool Versions - count
+        users_count: Users - count
       selectors:
-        select_row: "(Select row type)"
         select_col: "(Select column type)"
-      counters:
-        total: "Total"
-        entry:
-          one: "1 entry"
-          other: "%{count} entries"
-        file:
-          one: "1 file"
-          other: "%{count} files"
-        file_unk:
-          one: "1 file w/ unk size"
-          other: "%{count} files w/ unk size"
-      empty_state:
-        no_objects_html: "There are %{no_objects} found for this report.<br />Try with other reporting parameters."
-        no_objects_red: "no objects"
-        waiting_html: "The report will appear here once you've selected<br /> the proper table content and types for the rows and columns."
-      notes:
-        optional_fix_html: "<strong>Optional:</strong> fix some attributes:"
-        date_html: "<small>(Note: the links in the report will NOT include the date restrictions)</small>"
-    stats:
-      title: "Detailed Service Stats"
-      headings:
-        main: "CBRAIN Web Service Statistics"
-        by_client: "Totals by client type"
-        by_controller_html: "Totals by controller &amp; action"
-        by_status: "Totals by HTTP status codes"
-      columns:
-        client_type: "Client Type"
-        successes: "Successes"
-        failures: "Failures"
-        controller: "Controller"
-        action: "Action"
-        status_code: "Status Code"
-        count: "Count"
-      footer:
-        last_reset: "Counters last reset:"
+        select_row: "(Select row type)"
+      title: Tabular Reports
     search:
-      title: "Search"
-      placeholders:
-        search: "Search for anything"
-      explanations:
-        search: "This will search files, tasks, users, tools, projects, etc by ID, by name or by description. %{limit} results shown maximum."
       actions:
         switch: "(switch)"
+      explanations:
+        search: This will search files, tasks, users, tools, projects, etc by ID, by name or by description. %{limit} results shown maximum.
+      placeholders:
+        search: Search for anything
       results:
         found: "(found: %{count})"
-        registered_files: "Registered files"
+        registered_files: Registered files
+      title: Search
+    show_license:
+      already_signed: You have already signed this agreement.
+      disagree: I do not agree
+      error_fetching: "(Error fetching license text)"
+    stats:
+      columns:
+        action: Action
+        client_type: Client Type
+        controller: Controller
+        count: Count
+        failures: Failures
+        status_code: Status Code
+        successes: Successes
+      footer:
+        last_reset: 'Counters last reset:'
+      headings:
+        by_client: Totals by client type
+        by_controller_html: Totals by controller &amp; action
+        by_status: Totals by HTTP status codes
+        main: CBRAIN Web Service Statistics
+      title: Detailed Service Stats
     swagger:
-      title: "CBRAIN API"
       paragraphs:
         api_html: |
           <div class="generalbox">
@@ -257,73 +261,70 @@ en:
           <p class="medium_paragraphs">
           Here is a direct link to the developer's <a href="https://app.swaggerhub.com/apis/prioux/CBRAIN/%{spec_version}">latest version on SwaggerHub</a>.
           </div>
+      title: CBRAIN API
     welcome:
-      title: "Welcome"
-      headings:
-        main: "Welcome to CBRAIN %{name}"
-        news: "CBRAIN News"
-        system_info: "System Information"
-        sessions: "Sessions"
-        account_info: "Account Information"
-        tools_available_info_html: "Tools available to you (%{available} out of %{total}, %{link}):"
-        latest_tasks: "Latest Updated Tasks"
-        latest_files: "Latest Updated Files"
-      news:
-        posted_at: "Posted: %{created_at}"
-      system_info:
-        instance_name_html: "<strong>Portal instance name:</strong> %{name}"
-        unlock: "Unlock this Portal"
-        unlock_confirm: "Are you sure you wish to unlock this portal?"
-        lock_message: "(lock message)"
-        lock: "Lock this Portal"
-        lock_confirm: "Are you sure you wish to lock this portal?"
-        online_users: "Users currently online: "
-        recent_activity: "Recent activity:"
-        active: "Active"
-        logged_out: "Logged out"
-        unknown_unknown: "unknown/unknown"
-        unknown_browser: "unknown browser"
-        unknown_os: "unknown OS"
-        on_word: "on"
-        with: "with"
-      sessions:
-        sessions_count: "There are currently %{count} entries in the sessions table."
-        clear_sessions: "Clear sessions older than"
-        clear_confirm: "Are you sure you want to clear the sessions?"
+      account_info:
+        current_time: 'Your current time:'
+        full_name: 'Your full name:'
+        login_name: 'Your login name:'
+        site_affiliation: 'Your site affiliation:'
+        time_zone: 'Your time zone:'
+      defaults:
+        projects: 'Projects you belong to:'
+        provider: 'Your default Data Provider:'
+        server: 'Your default Execution Server:'
       exceptions:
-        logged: "There are internal exceptions logged:"
+        logged: 'There are internal exceptions logged:'
         past_day:
-          one: "1 exception in the past day."
+          one: 1 exception in the past day.
           other: "%{count} exceptions in the past day."
         past_three_days:
-          one: "1 exception in the past three days."
+          one: 1 exception in the past three days.
           other: "%{count} exceptions in the past three days."
         past_week:
-          one: "1 exception in the past week."
+          one: 1 exception in the past week.
           other: "%{count} exceptions in the past week."
         total:
-          one: "1 exception in total."
+          one: 1 exception in total.
           other: "%{count} exceptions in total."
-      account_info:
-        login_name: "Your login name:"
-        full_name: "Your full name:"
-        site_affiliation: "Your site affiliation:"
-        time_zone: "Your time zone:"
-        current_time: "Your current time:"
-      defaults:
-        projects: "Projects you belong to:"
-        provider: "Your default Data Provider:"
-        server: "Your default Execution Server:"
+      headings:
+        account_info: Account Information
+        latest_files: Latest Updated Files
+        latest_tasks: Latest Updated Tasks
+        main: Welcome to CBRAIN %{name}
+        news: CBRAIN News
+        sessions: Sessions
+        system_info: System Information
+        tools_available_info_html: 'Tools available to you (%{available} out of %{total}, %{link}):'
       latest_tasks:
         active_count: "(%{count} active)"
         none_active: "(None active)"
       links:
+        exceptions:
+          show: Show Exceptions
+        full_tools_list: full list of all tools here
         system_info:
           view_logs: "(View logs)"
-        full_tools_list: "full list of all tools here"
-        exceptions:
-          show: "Show Exceptions"
-    show_license:
-      error_fetching: "(Error fetching license text)"
-      already_signed: "You have already signed this agreement."
-      disagree: "I do not agree"
+      news:
+        posted_at: 'Posted: %{created_at}'
+      sessions:
+        clear_confirm: Are you sure you want to clear the sessions?
+        clear_sessions: Clear sessions older than
+        sessions_count: There are currently %{count} entries in the sessions table.
+      system_info:
+        active: Active
+        instance_name_html: "<strong>Portal instance name:</strong> %{name}"
+        lock: Lock this Portal
+        lock_confirm: Are you sure you wish to lock this portal?
+        lock_message: "(lock message)"
+        logged_out: Logged out
+        on_word: 'on'
+        online_users: 'Users currently online: '
+        recent_activity: 'Recent activity:'
+        unknown_browser: unknown browser
+        unknown_os: unknown OS
+        unknown_unknown: unknown/unknown
+        unlock: Unlock this Portal
+        unlock_confirm: Are you sure you wish to unlock this portal?
+        with: with
+      title: Welcome

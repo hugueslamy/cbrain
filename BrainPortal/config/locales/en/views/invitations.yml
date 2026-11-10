@@ -1,6 +1,7 @@
+---
 en:
   invitations:
     new:
-      title: "Invite other users to join your project"
-      field_note: "Enter one or several email addresses separated by blanks or commas. You can also provide CBRAIN usernames if you know them."
-      send_invitations: "Send Invitations"
+      field_note: Enter one or several email addresses separated by blanks or commas. You can also provide CBRAIN usernames if you know them.
+      send_invitations: Send Invitations
+      title: Invite other users to join your project

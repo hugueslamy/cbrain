@@ -1,29 +1,34 @@
+---
 fr:
-  attributes:
-    category: "Catégorie"
-    city: "Ville"
-    country: "Pays"
-    yearmonth: "Année/Mois"
-    name: "Nom"
-    description: "Description"
-    status: "Statut"
-    type: "Type"
-    size: "Taille"
-    color: "Couleur"
-    time_zone: "Fuseau horaire"
-    license_agreements: "Licences"
-    id: "Identifiant"
-    created_at: "Créé le"
-    updated_at: "Mis à jour le"
-    user_id: "Utilisateur"
-    user: "Utilisateur"
-    group_id: "Groupe"
-    group: "Groupe"
-    site_id: &site "Site"
-    site: *site
-    online: "En ligne"
   activerecord:
     errors:
       messages:
-        missing_license_files:        "Certains fichiers de licence n'existent pas : %{list}\nVeuillez placer le ou les fichiers de licence dans /public/licenses ou retirer cette configuration.\n"
-        missing_custom_license_files: "Certains fichiers de licence n'existent pas : %{list}\nVeuillez prévenir les responsables ou les administrateurs pour corriger ces fichiers.\n"
+        missing_custom_license_files: |
+          Certains fichiers de licence n'existent pas : %{list}
+          Veuillez prévenir les responsables ou les administrateurs pour corriger ces fichiers.
+        missing_license_files: |
+          Certains fichiers de licence n'existent pas : %{list}
+          Veuillez placer le ou les fichiers de licence dans /public/licenses ou retirer cette configuration.
+  attributes:
+    category: Catégorie
+    city: Ville
+    color: Couleur
+    country: Pays
+    created_at: Créé le
+    description: Description
+    group: Groupe
+    group_id: Groupe
+    id: Identifiant
+    license_agreements: Licences
+    name: Nom
+    online: En ligne
+    site: Site
+    site_id: Site
+    size: Taille
+    status: Statut
+    time_zone: Fuseau horaire
+    type: Type
+    updated_at: Mis à jour le
+    user: Utilisateur
+    user_id: Utilisateur
+    yearmonth: Année/Mois

@@ -1,103 +1,104 @@
+---
 en:
   custom_filters:
     common:
-      filtering_by_date: "Filtering by date"
-      archiving_status: "Archiving status"
-      owners: "Owners"
-      dont_filter_description: "Don't filter description"
-      match_type:
-        match: "Matches"
-        match_exactly: "Match exactly"
-        contain: "Contains"
-        begin: "Begins with"
-        end: "Ends with"
       archiving:
-        dont_filter: "Don't filter by archiving status"
-        archived: "Archived"
-        not_archived: "Not archived"
-        on_cluster: "Archived on cluster"
-        as_file: "Archived as file"
-      userfile:
-        filename: "Filename"
-        dont_filter_name: "Don't filter name"
-        parent_name_contains: "Parent name contains"
-        lists_children: "(lists children)"
-        child_name_contains: "Child name contains"
-        lists_parents: "(lists parents)"
-        dont_filter_size: "Don't filter size"
-        synchronization_status: "Synchronization status"
+        archived: Archived
+        as_file: Archived as file
+        dont_filter: Don't filter by archiving status
+        not_archived: Not archived
+        on_cluster: Archived on cluster
+      archiving_status: Archiving status
+      dont_filter_description: Don't filter description
+      filtering_by_date: Filtering by date
+      match_type:
+        begin: Begins with
+        contain: Contains
+        end: Ends with
+        match: Matches
+        match_exactly: Match exactly
+      owners: Owners
       task:
-        work_directory_status: "Work Directory status"
         wd_status:
-          dont_filter: "Don't filter by work directory status"
-          shared: "Use another task's"
-          not_shared: "Have own Work Directory"
-          exists: "Work Directory exists on cluster"
-          none: "Work Directory does not exist on cluster"
+          dont_filter: Don't filter by work directory status
+          exists: Work Directory exists on cluster
+          none: Work Directory does not exist on cluster
+          not_shared: Have own Work Directory
+          shared: Use another task's
+        work_directory_status: Work Directory status
+      userfile:
+        child_name_contains: Child name contains
+        dont_filter_name: Don't filter name
+        dont_filter_size: Don't filter size
+        filename: Filename
+        lists_children: "(lists children)"
+        lists_parents: "(lists parents)"
+        parent_name_contains: Parent name contains
+        synchronization_status: Synchronization status
     custom_filter_li:
       links:
-        edit_delete: "Edit/Delete"
+        edit_delete: Edit/Delete
     custom_filter_list:
       headings:
-        by_custom_filter: "By Custom Filter"
+        by_custom_filter: By Custom Filter
       links:
-        create_custom_filter: "Create Custom Filter"
+        create_custom_filter: Create Custom Filter
+    new:
+      errors:
+        custom_filter: custom filter
+      headings:
+        main: New %{type}
+      labels:
+        filter_name: Filter name
+      submit: Create
     new_task_custom_filter:
       by:
-        task_types: "Task types"
-        status: "Status"
-        description: "Description"
-        owners: "Owners"
-        projects: "Projects"
-        execution_servers: "Execution servers"
-        filtering_by_date: "Filtering by date"
-        archiving_status: "Archiving status"
-        work_directory_status: "Work Directory status"
+        archiving_status: Archiving status
+        description: Description
+        execution_servers: Execution servers
+        filtering_by_date: Filtering by date
+        owners: Owners
+        projects: Projects
+        status: Status
+        task_types: Task types
+        work_directory_status: Work Directory status
     new_userfile_custom_filter:
       by:
-        filename: "Filename"
-        parent_name_contains_html: "Parent name contains <small>(lists children)</small>"
-        child_name_contains_html: "Child name contains <small>(lists parents)</small>"
-        file_types: "File types"
-        filtering_by_date: "Filtering by date"
-        size: "Size"
-        owners: "Owners"
-        projects: "Projects"
-        data_providers: "Data Providers"
-        archiving_status: "Archiving status"
-        synchronization_status: "Synchronization status"
-        tags: "Tags"
-    new:
-      headings:
-        main: "New %{type}"
-      labels:
-        filter_name: "Filter name"
-      errors:
-       custom_filter: "custom filter"
-      submit: "Create"
-    task_custom_filter:
-      headings:
-        types: "Types"
-        status: "Status"
-        description: "Description"
-        owners: "Owners"
-        projects: "Projects"
-        execution_servers: "Execution servers"
-        archiving_status: "Archiving status"
-        work_directory_status: "Work Directory status"
-        filtering_by_date: "Filtering by date"
-    userfile_custom_filter:
-      headings:
-        filename: "Filename"
-        by_file_types: "By file types"
-        size: "Size"
-        owner: "Owner"
-        projects: "Projects"
-        data_providers: "Data Providers"
-        archiving_status: "Archiving status"
-        synchronization_status: "Synchronization status"
-        tags: "Tags"
-        filtering_by_date: "Filtering by date"
+        archiving_status: Archiving status
+        child_name_contains_html: Child name contains <small>(lists parents)</small>
+        data_providers: Data Providers
+        file_types: File types
+        filename: Filename
+        filtering_by_date: Filtering by date
+        owners: Owners
+        parent_name_contains_html: Parent name contains <small>(lists children)</small>
+        projects: Projects
+        size: Size
+        synchronization_status: Synchronization status
+        tags: Tags
     show:
       errors:
-        update: "custom filter could not be updated."
+        update: custom filter could not be updated.
+    task_custom_filter:
+      headings:
+        archiving_status: Archiving status
+        description: Description
+        execution_servers: Execution servers
+        filtering_by_date: Filtering by date
+        owners: Owners
+        projects: Projects
+        status: Status
+        types: Types
+        work_directory_status: Work Directory status
+    userfile_custom_filter:
+      headings:
+        archiving_status: Archiving status
+        by_file_types: By file types
+        data_providers: Data Providers
+        filename: Filename
+        filtering_by_date: Filtering by date
+        owner: Owner
+        projects: Projects
+        size: Size
+        synchronization_status: Synchronization status
+        tags: Tags

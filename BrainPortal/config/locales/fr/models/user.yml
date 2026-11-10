@@ -1,30 +1,31 @@
+---
 fr:
   activerecord:
-    models:
-      user:
-        one: "Utilisateur"
-        other: "Utilisateurs"
     attributes:
       user:
-        login: "Identifiant"
-        full_name: "Nom complet"
-        email: "Courriel"
-        position: "Fonction"
-        department: "Département"
-        affiliation: "Affiliation"
-        institution: "Établissement"
-        city: "Ville"
-        country: "Pays"
-        type: "Type"
-        site: "Site"
-        default_data_provider: "Serveur de stockage par défaut"
-        forced_openid_providers: "Fournisseurs d'identité OpenID imposés"
-        password: "Mot de passe"
+        affiliation: Affiliation
+        city: Ville
+        country: Pays
+        default_data_provider: Serveur de stockage par défaut
+        department: Département
+        email: Courriel
+        forced_openid_providers: Fournisseurs d'identité OpenID imposés
+        full_name: Nom complet
+        institution: Établissement
+        login: Identifiant
+        password: Mot de passe
+        position: Fonction
+        site: Site
+        type: Type
     errors:
       models:
         user:
-          same_password:          "ne peut pas être identique au précédent !"
-          login_taken_by_project: "est déjà utilisé par un projet existant."
-          login_immutable:        "ne peut pas être modifié."
-          weak_password:          "doit avoir trois des propriétés suivantes : une majuscule, une minuscule, un chiffre, un symbole ou une longueur d'au moins 15 caractères"
-          user_group_error:       "Projet de l'utilisateur : %{errors}"
+          login_immutable: ne peut pas être modifié.
+          login_taken_by_project: est déjà utilisé par un projet existant.
+          same_password: ne peut pas être identique au précédent !
+          user_group_error: 'Projet de l''utilisateur : %{errors}'
+          weak_password: 'doit avoir trois des propriétés suivantes : une majuscule, une minuscule, un chiffre, un symbole ou une longueur d''au moins 15 caractères'
+    models:
+      user:
+        one: Utilisateur
+        other: Utilisateurs

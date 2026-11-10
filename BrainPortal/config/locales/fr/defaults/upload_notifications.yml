@@ -1,5 +1,6 @@
+---
 fr:
   upload_notifications:
-    file: "Fichier téléversé"
-    collection: "Collection téléversée"
-    failed: "Échec du téléversement de la collection"
+    collection: Collection téléversée
+    failed: Échec du téléversement de la collection
+    file: Fichier téléversé

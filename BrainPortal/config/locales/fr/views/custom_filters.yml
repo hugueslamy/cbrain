@@ -1,103 +1,104 @@
+---
 fr:
   custom_filters:
     common:
-      filtering_by_date: "Filtrer par date"
-      archiving_status: "Statut d'archivage"
-      owners: "Propriétaires"
-      dont_filter_description: "Ne pas filtrer la description"
-      match_type:
-        match: "Correspond"
-        match_exactly: "Correspond exactement"
-        contain: "Contient"
-        begin: "Commence par"
-        end: "Se termine par"
       archiving:
-        dont_filter: "Ne pas filtrer par statut d'archivage"
-        archived: "Archivé"
-        not_archived: "Non archivé"
-        on_cluster: "Archivé sur le cluster"
-        as_file: "Archivé en tant que fichier"
-      userfile:
-        filename: "Nom du fichier"
-        dont_filter_name: "Ne pas filtrer le nom"
-        parent_name_contains: "Le nom du parent contient"
-        lists_children: "(liste les enfants)"
-        child_name_contains: "Le nom de l'enfant contient"
-        lists_parents: "(liste les parents)"
-        dont_filter_size: "Ne pas filtrer la taille"
-        synchronization_status: "Statut de synchronisation"
+        archived: Archivé
+        as_file: Archivé en tant que fichier
+        dont_filter: Ne pas filtrer par statut d'archivage
+        not_archived: Non archivé
+        on_cluster: Archivé sur le cluster
+      archiving_status: Statut d'archivage
+      dont_filter_description: Ne pas filtrer la description
+      filtering_by_date: Filtrer par date
+      match_type:
+        begin: Commence par
+        contain: Contient
+        end: Se termine par
+        match: Correspond
+        match_exactly: Correspond exactement
+      owners: Propriétaires
       task:
-        work_directory_status: "Statut du répertoire de travail"
         wd_status:
-          dont_filter: "Ne pas filtrer par statut du répertoire de travail"
-          shared: "Utiliser celui d'une autre tâche"
-          not_shared: "Possède son propre répertoire de travail"
-          exists: "Le répertoire de travail existe sur le cluster"
-          none: "Le répertoire de travail n'existe pas sur le cluster"
+          dont_filter: Ne pas filtrer par statut du répertoire de travail
+          exists: Le répertoire de travail existe sur le cluster
+          none: Le répertoire de travail n'existe pas sur le cluster
+          not_shared: Possède son propre répertoire de travail
+          shared: Utiliser celui d'une autre tâche
+        work_directory_status: Statut du répertoire de travail
+      userfile:
+        child_name_contains: Le nom de l'enfant contient
+        dont_filter_name: Ne pas filtrer le nom
+        dont_filter_size: Ne pas filtrer la taille
+        filename: Nom du fichier
+        lists_children: "(liste les enfants)"
+        lists_parents: "(liste les parents)"
+        parent_name_contains: Le nom du parent contient
+        synchronization_status: Statut de synchronisation
     custom_filter_li:
       links:
-        edit_delete: "Modifier/Supprimer"
+        edit_delete: Modifier/Supprimer
     custom_filter_list:
       headings:
-        by_custom_filter: "Par filtre personnalisé"
+        by_custom_filter: Par filtre personnalisé
       links:
-        create_custom_filter: "Créer un filtre personnalisé"
+        create_custom_filter: Créer un filtre personnalisé
+    new:
+      errors:
+        custom_filter: filtre personnalisé
+      headings:
+        main: Nouveau %{type}
+      labels:
+        filter_name: Nom du filtre
+      submit: Créer
     new_task_custom_filter:
       by:
-        task_types: "Types de tâches"
-        status: "Statut"
-        description: "Description"
-        owners: "Propriétaires"
-        projects: "Projets"
-        execution_servers: "Borreau"
-        filtering_by_date: "Filtrage par date"
-        archiving_status: "Statut d'archivage"
-        work_directory_status: "Statut du répertoire de travail"
+        archiving_status: Statut d'archivage
+        description: Description
+        execution_servers: Borreau
+        filtering_by_date: Filtrage par date
+        owners: Propriétaires
+        projects: Projets
+        status: Statut
+        task_types: Types de tâches
+        work_directory_status: Statut du répertoire de travail
     new_userfile_custom_filter:
       by:
-        filename: "Nom du fichier"
-        parent_name_contains_html: "Le nom du parent contient <small>(liste les enfants)</small>"
-        child_name_contains_html: "Le nom de l'enfant contient <small>(liste les parents)</small>"
-        file_types: "Types de fichiers"
-        filtering_by_date: "Filtrage par date"
-        size: "Taille"
-        owners: "Propriétaires"
-        projects: "Projets"
-        data_providers: "Serveurs de stockage"
-        archiving_status: "Statut d'archivage"
-        synchronization_status: "Statut de synchronisation"
-        tags: "Labels"
-    new:
-      headings:
-        main: "Nouveau %{type}"
-      labels:
-        filter_name: "Nom du filtre"
-      errors:
-        custom_filter: "filtre personnalisé"
-      submit: "Créer"
-    task_custom_filter:
-      headings:
-        types: "Types"
-        status: "Statut"
-        description: "Description"
-        owners: "Propriétaires"
-        projects: "Projets"
-        execution_servers: "Bourreau"
-        archiving_status: "Statut d'archivage"
-        work_directory_status: "Statut du répertoire de travail"
-        filtering_by_date: "Filtrage par date"
-    userfile_custom_filter:
-      headings:
-        filename: "Nom du fichier"
-        by_file_types: "Par types de fichiers"
-        size: "Taille"
-        owner: "Propriétaire"
-        projects: "Projets"
-        data_providers: "Serveurs de stockage"
-        archiving_status: "Statut d'archivage"
-        synchronization_status: "Statut de synchronisation"
-        tags: "Labels"
-        filtering_by_date: "Filtrage par date"
+        archiving_status: Statut d'archivage
+        child_name_contains_html: Le nom de l'enfant contient <small>(liste les parents)</small>
+        data_providers: Serveurs de stockage
+        file_types: Types de fichiers
+        filename: Nom du fichier
+        filtering_by_date: Filtrage par date
+        owners: Propriétaires
+        parent_name_contains_html: Le nom du parent contient <small>(liste les enfants)</small>
+        projects: Projets
+        size: Taille
+        synchronization_status: Statut de synchronisation
+        tags: Labels
     show:
       errors:
-        update: "Le filtre personnalisé n'a pas pu être mis à jour."
+        update: Le filtre personnalisé n'a pas pu être mis à jour.
+    task_custom_filter:
+      headings:
+        archiving_status: Statut d'archivage
+        description: Description
+        execution_servers: Bourreau
+        filtering_by_date: Filtrage par date
+        owners: Propriétaires
+        projects: Projets
+        status: Statut
+        types: Types
+        work_directory_status: Statut du répertoire de travail
+    userfile_custom_filter:
+      headings:
+        archiving_status: Statut d'archivage
+        by_file_types: Par types de fichiers
+        data_providers: Serveurs de stockage
+        filename: Nom du fichier
+        filtering_by_date: Filtrage par date
+        owner: Propriétaire
+        projects: Projets
+        size: Taille
+        synchronization_status: Statut de synchronisation
+        tags: Labels

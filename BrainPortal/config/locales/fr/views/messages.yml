@@ -1,80 +1,81 @@
+---
 fr:
   messages:
     common:
-      mark_as_html: "Marquer&nbsp;comme&nbsp;%{state}"
-      updating: "Mise à jour..."
-      deleting: "Suppression..."
-      labels:
-        system: "Système"
-        state_read: "Lu"
-        state_unread: "Non lu"
-        expiry_date: "Date d'expiration (heure actuelle : %{time})"
-      time_ago:
-        ten_minutes: "Dix minutes"
-        one_hour: "Une heure"
-        one_day: "Un jour"
-        two_days: "Deux jours"
-        one_week: "Une semaine"
-        one_month: "Un mois"
-        two_months: "Deux mois"
-        one_year: "Un an"
       columns:
-        sender: "Expéditeur"
-        recipient: "Destinataire"
-        last_updated: "Dernière mise à jour"
-        operations: "Actions"
+        last_updated: Dernière mise à jour
+        operations: Actions
+        recipient: Destinataire
+        sender: Expéditeur
+      deleting: Suppression...
+      labels:
+        expiry_date: 'Date d''expiration (heure actuelle : %{time})'
+        state_read: Lu
+        state_unread: Non lu
+        system: Système
+      mark_as_html: Marquer&nbsp;comme&nbsp;%{state}
       message_count:
-        one: "1 message"
+        one: 1 message
         other: "%{count} messages"
+      time_ago:
+        one_day: Un jour
+        one_hour: Une heure
+        one_month: Un mois
+        one_week: Une semaine
+        one_year: Un an
+        ten_minutes: Dix minutes
+        two_days: Deux jours
+        two_months: Deux mois
+      updating: Mise à jour...
+    index:
+      title: Centre de messagerie
+      unread_count:
+        one: 1 message non lu
+        other: "%{count} messages non lus"
     message_details:
       paragraphs:
-        expires: "Expire :"
+        expires: 'Expire :'
         no_details: "(Aucun détail)"
     message_display:
-      rescue: "Oups. Contactez les développeurs !"
+      rescue: Oups. Contactez les développeurs !
     message_index_display:
-      links:
-        leave_message: "Laisser un message"
       buttons:
-        delete_checked: "Supprimer les messages cochés"
-        delete_name: "les messages sélectionnés"
-      scopes:
-        unread_link: "%{count} non lus"
-        read_link: "%{count} lus"
-      labels:
-        base: "%{label} (de %{base})"
+        delete_checked: Supprimer les messages cochés
+        delete_name: les messages sélectionnés
       columns:
         criticality:
-          critical: "Critique"
-          not_critical: "Non critique"
-        type: "Type"
-        message: "Message"
-        sender: "Expéditeur"
-        recipient: "Destinataire"
-        last_updated: "Dernière mise à jour"
-        operations: "Actions"
-    index:
-      title: "Centre de messagerie"
-      unread_count:
-        one: "1 message non lu"
-        other: "%{count} messages non lus"
+          critical: Critique
+          not_critical: Non critique
+        last_updated: Dernière mise à jour
+        message: Message
+        operations: Actions
+        recipient: Destinataire
+        sender: Expéditeur
+        type: Type
+      labels:
+        base: "%{label} (de %{base})"
+      links:
+        leave_message: Laisser un message
+      scopes:
+        read_link: "%{count} lus"
+        unread_link: "%{count} non lus"
+    new:
+      labels:
+        send_email: Envoyer un e‑mail
+      links:
+        new_cbrain_dashboard: Nouveau message tableau de bord CBRAIN
+      message_types:
+        error: Erreur
+        notice: Avis
+        system: Système
+      title: Ajouter un nouveau message
+      to_users_of_project: 'Aux utilisateurs du projet :'
     new_dashboard:
-      title: "Ajouter un nouveau message du tableau de bord"
-      headings:
-        main: "Ajouter un nouveau message du tableau de bord"
       explanations:
         dashboard_html: |
           Pour les messages du tableau de bord, ce que vous saisissez ici sera inséré littéralement
           dans le code de la page. Vous pouvez donc utiliser n'importe quel élément HTML,
           mais assurez‑vous de savoir ce que vous faites.
-    new:
-      message_types:
-        system: "Système"
-        notice: "Avis"
-        error: "Erreur"
-      title: "Ajouter un nouveau message"
-      links:
-        new_cbrain_dashboard: "Nouveau message tableau de bord CBRAIN"
-      to_users_of_project: "Aux utilisateurs du projet :"
-      labels:
-        send_email: "Envoyer un e‑mail"
+      headings:
+        main: Ajouter un nouveau message du tableau de bord
+      title: Ajouter un nouveau message du tableau de bord

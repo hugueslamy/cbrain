@@ -1,60 +1,30 @@
+---
 en:
   signups:
     common:
-      comment: "Comments or special requests:"
-    result_action_one:
+      comment: 'Comments or special requests:'
+    confirm:
       headings:
-        main: "Result for %{name}, %{institution}"
-    signups_table:
+        main: Confirmed!
       links:
-        new_request: "New Request"
-        hide_hidden_records: "Hide Hidden Records"
-        show_all_records: "Show All Records"
-        latest_todo: "Latest TODO"
-        edit: "Edit"
-        signup_request:
-          one:   "%{count} signup"
-          other: "%{count} signups"
-      columns:
-        name: "Name"
-        edit: "Edit"
-        email: "Email"
-        position: "Position"
-        department: "Department"
-        institution: "Institution"
-        country: "Country"
-        username: "Username"
-        comments: "Comments"
-        private_comments: "Private Comments"
-        in_cbrain: "In CBRAIN"
-        portal: "Portal"
-        origin: "Origin"
-        created: "Created"
-        approved_by: "Approved By"
-        status: "Status"
-      labels:
-        not_approved: "(Not approved)"
-      buttons:
-        adjust_login: "Adjust Login"
-        resend_confirm_email: "Resend Confirm Email"
-        toggle_hidden: "Toggle Hidden"
-      tooltips:
-        updated_at: "Updated: %{time}"
-      delete_confirm: "Delete the selected signup requests?"
-    status:
-      approved_by: "Approved by: %{name}"
-      approved_at: "Approved at: %{time}"
-      email_confirmed: "Email confirmed."
-      warnings:
-        email_unconfirmed: "(Email unconfirmed)"
-        conflicting_email: "(Conflicting email)"
-        login_conflict: "(Login conflict)"
-      links:
-        approve: "(Approve)"
+        have_a_look: have a look
+      paragraphs:
+        footer: "(There is nothing else to do here, you might as well have a coffee and read the news)\n"
+        main_html: |
+          Thank you. You've confirmed your email address.
+          <p>
+          Now it's up to the administrators to review your request
+          and you'll be notified if and when they approve it.
+          <p>
+        propose_view_html: 'In the meantime you can %{look} at your request, or even %{edit} it.
+
+          '
+      title: Request Confirmed
     confirm_button:
-      title: "Confirm Your Request"
       headings:
-        main: "Please confirm your new account request."
+        main: Please confirm your new account request.
+      links:
+        confirm_request: Confirm request
       paragraphs:
         main_html: |
           Thank you for following the link from CBRAIN in your mailbox.
@@ -65,73 +35,50 @@ en:
           the CBRAIN administrators that your request is legitimate and
           official.
           <p>
-      links:
-        confirm_request: "Confirm request"
-    confirm:
-      title: "Request Confirmed"
-      headings:
-        main: "Confirmed!"
-      links:
-        have_a_look: "have a look"
-      paragraphs:
-        main_html: |
-          Thank you. You've confirmed your email address.
-          <p>
-          Now it's up to the administrators to review your request
-          and you'll be notified if and when they approve it.
-          <p>
-        propose_view_html: |
-          In the meantime you can %{look} at your request, or even %{edit} it.
-        footer: |
-          (There is nothing else to do here, you might as well have a coffee and read the news)
+      title: Confirm Your Request
     index:
-      title: "Account Signup Requests"
       headings:
-        main: "Account Signup Requests"
+        main: Account Signup Requests
+      title: Account Signup Requests
     multi_action:
-      title: "Batch action results"
       headings:
-        main: "Batch action summary results"
+        main: Batch action summary results
       links:
-        go_back_html: "You can go %{link}."
-        back_to_list: "back to the request list"
+        back_to_list: back to the request list
+        go_back_html: You can go %{link}.
+      title: Batch action results
     new:
-      title: "New Account Request"
-      warnings:
-        mandatory_fields: "Fields with an asterisk (*) are mandatory."
-      legends:
-        personal_info: "Personal Info"
-        institution_info: "Institution Info"
+      contact_html: For more information, contact %{email}.
       labels:
-        title: "Title:"
+        admin_comment: 'Private, admin-only comments:'
+        affiliation: "* Current affiliation:"
+        city: "* City of Institution:"
+        comment: 'Comments or special requests:'
+        country: "* Country:"
+        department: "* Department"
+        email: "* Institutional Email address:"
         first: "* First Name:"
-        middle: "Middle Name:"
+        institution: "* Name of Institution/Organization:"
         last: "* Last Name:"
         login: "* Preferred 'login' name:"
-        institution: "* Name of Institution/Organization:"
-        department: "* Department"
+        middle: 'Middle Name:'
         position: "* Current position or role:"
-        affiliation: "* Current affiliation:"
-        email: "* Institutional Email address:"
-        street1: "Institution Street Address (line 1):"
-        street2: "Institution Street Address (line 2):"
-        city: "* City of Institution:"
+        postal_code: 'Postal/ZIP Code:'
         province: "* Province/State:"
-        country: "* Country:"
-        postal_code: "Postal/ZIP Code:"
-        admin_comment: "Private, admin-only comments:"
-        comment: "Comments or special requests:"
+        street1: 'Institution Street Address (line 1):'
+        street2: 'Institution Street Address (line 2):'
+        title: 'Title:'
+      legends:
+        institution_info: Institution Info
+        personal_info: Personal Info
       paragraphs:
-        title_html: |
+        comment_html: |
           <div class="wide_field_explanation">
-            <span class="wide_field_explanation">for example: 'Mrs.', 'Mr', 'Dr.', etc.</span>
-          </div>
-        login_html: |
-          <div class="wide_field_explanation">
-            <span class="wide_field_explanation">
-                <small>one letter + alphanums. <strong>By convention</strong>: the first letter of your first name + last name.
-                For example, John Doe login: 'jdoe' </small>
-            </span>
+            Please tell us the name of the laboratory you work for,
+            the name of its Principal Investigator (if not you), and if possible
+            anyone else you know in your lab who are already CBRAIN users. <br>
+            We'll use this information to create or add you to a
+            <em>Site</em> within CBRAIN.
           </div>
         email_html: |
           <div class="wide_field_explanation">
@@ -140,13 +87,12 @@ en:
               will be <strong>ignored</strong>
             </small>
           </div>
-        comment_html: |
+        login_html: |
           <div class="wide_field_explanation">
-            Please tell us the name of the laboratory you work for,
-            the name of its Principal Investigator (if not you), and if possible
-            anyone else you know in your lab who are already CBRAIN users. <br>
-            We'll use this information to create or add you to a
-            <em>Site</em> within CBRAIN.
+            <span class="wide_field_explanation">
+                <small>one letter + alphanums. <strong>By convention</strong>: the first letter of your first name + last name.
+                For example, John Doe login: 'jdoe' </small>
+            </span>
           </div>
         privacy_note_html: |
           <br>
@@ -157,60 +103,115 @@ en:
           automatically generate your user account. <br>
           This information will not be used in any other way, or passed on to
           any other entities or persons.
+        title_html: |
+          <div class="wide_field_explanation">
+            <span class="wide_field_explanation">for example: 'Mrs.', 'Mr', 'Dr.', etc.</span>
+          </div>
       selects:
-        position_options:
-          faculty: "Faculty"
-          postdoctoral: "Postdoctoral"
-          phd_candidate: "PhD. candidate"
-          masters_student: "Masters student"
-          student: "Student"
-          researcher: "Researcher"
-          other: "Other"
         affiliation_options:
-          academic: "Academic"
-          private_sector: "Private sector"
-          government: "Government"
-          non_profit: "Non-profit"
-          other: "Other"
+          academic: Academic
+          government: Government
+          non_profit: Non-profit
+          other: Other
+          private_sector: Private sector
+        position_options:
+          faculty: Faculty
+          masters_student: Masters student
+          other: Other
+          phd_candidate: PhD. candidate
+          postdoctoral: Postdoctoral
+          researcher: Researcher
+          student: Student
         select_one: "(select one)"
       submits:
-        request_account: "Request Account"
-        update_request: "Update Request"
-      contact_html: "For more information, contact %{email}."
-    show:
-      title: "Account Request Info"
+        request_account: Request Account
+        update_request: Update Request
+      title: New Account Request
+      warnings:
+        mandatory_fields: Fields with an asterisk (*) are mandatory.
+    result_action_one:
       headings:
-        main: "Account Request Summary"
-        full_name: "Full Name"
-        login: "Preferred 'login' name:"
-        institution: "Name of Institution/Organization:"
-        department: "Department:"
-        position: "Position or role:"
-        affiliation: "Affiliation:"
-        email: "Email address:"
-        street1: "Street Address (line 1):"
-        street2: "Street Address (line 2):"
-        city: "City:"
-        province: "Province/State:"
-        country: "Country:"
-        postal_code: "Postal Code:"
-        comment: "Comments or special requests:"
-        admin_comments: "Admin Comments"
-        status_of_request: "Status of request:"
-        time_zone: "Time Zone:"
+        main: Result for %{name}, %{institution}
+    show:
+      headings:
+        admin_comments: Admin Comments
+        affiliation: 'Affiliation:'
+        city: 'City:'
+        comment: 'Comments or special requests:'
+        country: 'Country:'
+        department: 'Department:'
+        email: 'Email address:'
+        full_name: Full Name
+        institution: 'Name of Institution/Organization:'
+        login: 'Preferred ''login'' name:'
+        main: Account Request Summary
+        position: 'Position or role:'
+        postal_code: 'Postal Code:'
+        province: 'Province/State:'
+        status_of_request: 'Status of request:'
+        street1: 'Street Address (line 1):'
+        street2: 'Street Address (line 2):'
+        time_zone: 'Time Zone:'
       links:
-        approve: "approve"
-        email_confirmation_request: "email confirmation request"
+        approve: approve
+        email_confirmation_request: email confirmation request
       paragraphs:
-        made_from_portal_html: "This account request was made from portal %{portal} using the form located on %{form_page}."
-        admin_can_edit_html: "As an administrator, you can %{link} this request."
-        login_conflict: "This user's login conflicts with a user already in the system."
-        can_approve_html: "You can also %{link} this request."
-        not_confirmed: "The user has not yet confirmed their email address."
-        confirmed: "The user has confirmed the email address."
-        resend_admin_html: "If the user hasn't received the confirmation email, you can ask for another %{link} to be sent again."
-        edit_session_note_html: "You can %{link} this form, but this option will only be available while you are using the same browser session you used for submitting this form originally. Do it now while you can!"
-        confirmation_sent: "A confirmation email has been sent to the address you provided. Once you receive it, please click on the provided link so we can confirm your identity."
-        resend_user_html: "If you haven't received the email, you can ask for another %{link} to be sent to you."
-        summary_intro: "Below is a summary of the information in this account request."
-        delete_html: "You can %{link} this request."
+        admin_can_edit_html: As an administrator, you can %{link} this request.
+        can_approve_html: You can also %{link} this request.
+        confirmation_sent: A confirmation email has been sent to the address you provided. Once you receive it, please click on the provided link so we can confirm your identity.
+        confirmed: The user has confirmed the email address.
+        delete_html: You can %{link} this request.
+        edit_session_note_html: You can %{link} this form, but this option will only be available while you are using the same browser session you used for submitting this form originally. Do it now while you can!
+        login_conflict: This user's login conflicts with a user already in the system.
+        made_from_portal_html: This account request was made from portal %{portal} using the form located on %{form_page}.
+        not_confirmed: The user has not yet confirmed their email address.
+        resend_admin_html: If the user hasn't received the confirmation email, you can ask for another %{link} to be sent again.
+        resend_user_html: If you haven't received the email, you can ask for another %{link} to be sent to you.
+        summary_intro: Below is a summary of the information in this account request.
+      title: Account Request Info
+    signups_table:
+      buttons:
+        adjust_login: Adjust Login
+        resend_confirm_email: Resend Confirm Email
+        toggle_hidden: Toggle Hidden
+      columns:
+        approved_by: Approved By
+        comments: Comments
+        country: Country
+        created: Created
+        department: Department
+        edit: Edit
+        email: Email
+        in_cbrain: In CBRAIN
+        institution: Institution
+        name: Name
+        origin: Origin
+        portal: Portal
+        position: Position
+        private_comments: Private Comments
+        status: Status
+        username: Username
+      delete_confirm: Delete the selected signup requests?
+      labels:
+        not_approved: "(Not approved)"
+      links:
+        edit: Edit
+        hide_hidden_records: Hide Hidden Records
+        latest_todo: Latest TODO
+        new_request: New Request
+        show_all_records: Show All Records
+        signup_request:
+          one: "%{count} signup"
+          other: "%{count} signups"
+      tooltips:
+        updated_at: 'Updated: %{time}'
+    status:
+      approved_at: 'Approved at: %{time}'
+      approved_by: 'Approved by: %{name}'
+      email_confirmed: Email confirmed.
+      links:
+        approve: "(Approve)"
+      warnings:
+        conflicting_email: "(Conflicting email)"
+        email_unconfirmed: "(Email unconfirmed)"
+        login_conflict: "(Login conflict)"

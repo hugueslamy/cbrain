@@ -1,6 +1,7 @@
+---
 en:
   quotas:
     flash:
-      created: "Quota entry was successfully created."
-      updated: "Quota entry was successfully updated."
+      created: Quota entry was successfully created.
       deleted: "%{type} quota entry deleted."
+      updated: Quota entry was successfully updated.

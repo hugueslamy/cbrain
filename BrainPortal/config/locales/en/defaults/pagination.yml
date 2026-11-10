@@ -1,4 +1,5 @@
+---
 en:
   will_paginate:
+    next_label: Next &rarr;
     previous_label: "&larr; Previous"
-    next_label: "Next &rarr;"

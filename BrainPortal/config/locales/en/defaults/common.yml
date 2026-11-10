@@ -1,190 +1,191 @@
+---
 en:
-  will_paginate:
-    page_gap: "…"
-  labels:
-    user_colon:
-      one: "User:"
-      other: "Users:"
-    group_colon:
-      one: "Group:"
-      other: "Groups:"
-    project_colon:
-      one: "Project:"
-      other: "Projects:"
-    tool_colon:
-      one: "Tool:"
-      other: "Tools:"
-    data_provider_colon:
-      one: "Data Provider:"
-      other: "Data Providers:"
-    execution_server_colon:
-      one: "Execution Server:"
-      other: "Execution Servers:"
-    type_colon:
-      one: "Type:"
-      other: "Types:"
-    status_colon:
-      one: "Status:"
-      other: "Statuses:"
-    description_colon:
-      one: "Description:"
-      other: "Descriptions:"
-    tags_colon:
-      one: "Tag:"
-      other: "Tags:"
-    conflict_colon: "Conflict:"
-    created_colon: "Created:"
-    updated_colon: "Updated:"
-    owner_colon: "Owner:"
-    published_colon: "Published:"
-    year_month_colon: "Year/Month:"
-    dates_colon: "Dates:"
-    search_colon: "Search:"
-    upload_colon: "Upload:"
-  date: "Date"
+  active_users: Active Users
   ago_time: "%{time} ago"
+  agree: I agree
+  all: All
+  browse: Browse
+  cancel: Cancel
+  chosen:
+    add_tag: 'Press Enter to add: '
+    multiple: Select Some Options
+    no_results: No results match
+    single: Select an Option
+  clear: Clear
+  clear_options:
+    day: One day ago
+    hour: One hour ago
+    month: One month ago
+    now: Now! (Including yours!)
+    week: One week ago
+  confirm_delete: Are you sure you want to delete %{name}?
+  create: Create
+  created: Created
+  custom_license:
+    message_header: License file added
+  dataset:
+    one: Dataset
+    other: Datasets
+  date: Date
+  datetime:
+    distance_in_words:
+      about_x_hours:
+        one: about 1 hour
+        other: about %{count} hours
+      about_x_months:
+        one: about 1 month
+        other: about %{count} months
+      about_x_years:
+        one: about 1 year
+        other: about %{count} years
+      almost_x_years:
+        one: almost 1 year
+        other: almost %{count} years
+      half_a_minute: half a minute
+      less_than_x_minutes:
+        one: less than a minute
+        other: less than %{count} minutes
+      less_than_x_seconds:
+        one: less than a second
+        other: less than %{count} seconds
+      over_x_years:
+        one: over 1 year
+        other: over %{count} years
+      x_days:
+        one: 1 day
+        other: "%{count} days"
+      x_minutes:
+        one: 1 minute
+        other: "%{count} minutes"
+      x_months:
+        one: 1 month
+        other: "%{count} months"
+      x_seconds:
+        one: 1 second
+        other: "%{count} seconds"
+  delete: Delete
+  deleted: Deleted
+  deleted_non_existing_parentheses: "(Deleted/Non-existing)"
+  edit: Edit
+  everyone: everyone
+  from: From
+  help: Help
+  help_parentheses: "(Help)"
+  hidden: hidden
+  info_parentheses: "(info)"
+  labels:
+    conflict_colon: 'Conflict:'
+    created_colon: 'Created:'
+    data_provider_colon:
+      one: 'Data Provider:'
+      other: 'Data Providers:'
+    dates_colon: 'Dates:'
+    description_colon:
+      one: 'Description:'
+      other: 'Descriptions:'
+    execution_server_colon:
+      one: 'Execution Server:'
+      other: 'Execution Servers:'
+    group_colon:
+      one: 'Group:'
+      other: 'Groups:'
+    owner_colon: 'Owner:'
+    project_colon:
+      one: 'Project:'
+      other: 'Projects:'
+    published_colon: 'Published:'
+    search_colon: 'Search:'
+    status_colon:
+      one: 'Status:'
+      other: 'Statuses:'
+    tags_colon:
+      one: 'Tag:'
+      other: 'Tags:'
+    tool_colon:
+      one: 'Tool:'
+      other: 'Tools:'
+    type_colon:
+      one: 'Type:'
+      other: 'Types:'
+    updated_colon: 'Updated:'
+    upload_colon: 'Upload:'
+    user_colon:
+      one: 'User:'
+      other: 'Users:'
+    year_month_colon: 'Year/Month:'
+  last_updated: Last Updated
+  locked_users: Locked Users
+  login: Login
+  more_parentheses: "(more)"
+  no_description_parentheses: "(No description)"
+  no_information: There is no information to show at this time.
+  none: None
+  none_parentheses: "(None)"
+  offline: Offline
+  online: Online
+  owner: Owner
+  owner_downcase: owner
+  parameters:
+    one: Parameter
+    other: Parameters
   pretty_elapsed:
-    year:
-      one: "%{count} year"
-      other: "%{count} years"
-    month:
-      one: "%{count} month"
-      other: "%{count} months"
-    week:
-      one: "%{count} week"
-      other: "%{count} weeks"
     day:
       one: "%{count} day"
       other: "%{count} days"
     hour:
       one: "%{count} hour"
       other: "%{count} hours"
+    last_separator: " and "
     minute:
       one: "%{count} minute"
       other: "%{count} minutes"
+    month:
+      one: "%{count} month"
+      other: "%{count} months"
     second:
       one: "%{count} second"
       other: "%{count} seconds"
     separator: ", "
-    last_separator: " and "
     short:
+      day: d
+      hour: h
+      minute: m
+      month: mo
+      second: s
+      week: w
       year: "y"
-      month: "mo"
-      week: "w"
-      day: "d"
-      hour: "h"
-      minute: "m"
-      second: "s"
-  more_parentheses: "(more)"
-  unknown: "Unknown"
+    week:
+      one: "%{count} week"
+      other: "%{count} weeks"
+    year:
+      one: "%{count} year"
+      other: "%{count} years"
+  refresh: Refresh
+  save: Save
+  saved: Saved
+  search_by_name: 'Search by name:'
+  select_placeholder: "..."
+  show: Show
+  show_hide_parentheses: "(show/hide)"
+  show_parentheses: "(Show)"
+  status: Status
+  submit: Submit
+  summary: Summary
+  switch: Switch
+  time_zone: Time Zone
+  to: To
+  tool_version:
+    one: Tool Version
+    other: Tool Versions
+  unknown: Unknown
   unknown_parentheses: "(Unknown)"
   unset_parentheses: "(Unset)"
-  yes_word: "Yes"
-  offline: "Offline"
-  online: "Online"
-  none: "None"
-  none_parentheses: "(None)"
+  update: Update
   update_parentheses: "(Update)"
-  show: "Show"
-  show_parentheses: "(Show)"
-  edit: "Edit"
-  help: "Help"
-  help_parentheses: "(Help)"
-  browse: "Browse"
-  cancel: "Cancel"
-  switch: "Switch"
-  clear: "Clear"
-  refresh: "Refresh"
-  select_placeholder: "..."
-  info_parentheses: "(info)"
-  no_description_parentheses: "(No description)"
-  everyone: everyone
-  no_information: "There is no information to show at this time."
-  from: "From"
-  to: "To"
-  delete: "Delete"
-  deleted: "Deleted"
-  deleted_non_existing_parentheses: "(Deleted/Non-existing)"
-  save: "Save"
-  saved: "Saved"
-  create: "Create"
-  created: "Created"
-  update: "Update"
-  updated: "Updated"
-  last_updated: "Last Updated"
-  active_users: "Active Users"
-  locked_users: "Locked Users"
-  submit: "Submit"
-  status: "Status"
-  search_by_name: "Search by name:"
-  confirm_delete: "Are you sure you want to delete %{name}?"
-  dataset:
-    one: "Dataset"
-    other: "Datasets"
-  agree: "I agree"
-  clear_options:
-      month: "One month ago"
-      week: "One week ago"
-      day: "One day ago"
-      hour: "One hour ago"
-      now: "Now! (Including yours!)"
-  login: "Login"
-  owner: "Owner"
-  owner_downcase: "owner"
+  updated: Updated
   version:
-    one: "Version"
-    other: "Versions"
-  tool_version:
-    one: "Tool Version"
-    other: "Tool Versions"
-  parameters:
-    one: "Parameter"
-    other: "Parameters"
-  summary: "Summary"
-  time_zone: "Time Zone"
-  all: "All"
-  show_hide_parentheses: "(show/hide)"
-  hidden: "hidden"
-  datetime:
-    distance_in_words:
-      half_a_minute: "half a minute"
-      less_than_x_seconds:
-        one: "less than a second"
-        other: "less than %{count} seconds"
-      x_seconds:
-        one: "1 second"
-        other: "%{count} seconds"
-      less_than_x_minutes:
-        one: "less than a minute"
-        other: "less than %{count} minutes"
-      x_minutes:
-        one: "1 minute"
-        other: "%{count} minutes"
-      about_x_hours:
-        one: "about 1 hour"
-        other: "about %{count} hours"
-      x_days:
-        one: "1 day"
-        other: "%{count} days"
-      about_x_months:
-        one: "about 1 month"
-        other: "about %{count} months"
-      x_months:
-        one: "1 month"
-        other: "%{count} months"
-      about_x_years:
-        one: "about 1 year"
-        other: "about %{count} years"
-      over_x_years:
-        one: "over 1 year"
-        other: "over %{count} years"
-      almost_x_years:
-        one: "almost 1 year"
-        other: "almost %{count} years"
-  chosen:
-    single:     "Select an Option"
-    multiple:   "Select Some Options"
-    no_results: "No results match"
-    add_tag:    "Press Enter to add: "
-  custom_license:
-    message_header: "License file added"
+    one: Version
+    other: Versions
+  will_paginate:
+    page_gap: "…"
+  yes_word: 'Yes'

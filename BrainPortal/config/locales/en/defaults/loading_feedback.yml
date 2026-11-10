@@ -1,5 +1,6 @@
+---
 en:
   loading_feedback:
-    loading: "Loading..."
-    uploading: "Uploading..."
-    error: "Error loading element"
+    error: Error loading element
+    loading: Loading...
+    uploading: Uploading...

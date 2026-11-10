@@ -1,33 +1,34 @@
+---
 en:
   shared:
-    common:
-      do_not_filter: "Do not filter"
     active_filters:
-      active_filters: "Active Filters"
+      active_filters: Active Filters
+    common:
+      do_not_filter: Do not filter
     date_range_info:
-      from_to: "from %{from} to %{to}"
+      from_to: from %{from} to %{to}
     dynamic_table:
-      no_records_found: "No records found"
-      filter: "Filter - %{name}"
-      columns: "Columns"
-      per_page: "per page."
+      columns: Columns
+      filter: Filter - %{name}
       links:
-        check: "Check"
-        browse: "Browse"
-        report: "Report"
-        show: "Show"
-        on_word: "on"
+        browse: Browse
+        check: Check
+        on_word: 'on'
+        report: Report
+        show: Show
+      no_records_found: No records found
+      per_page: per page.
     error_messages:
       header_message:
         one: "%{count} error prohibited this %{object_name} from being saved:"
         other: "%{count} errors prohibited this %{object_name} from being saved:"
-      message: "There were problems with the following fields:"
+      message: 'There were problems with the following fields:'
     group_tables:
       labels:
-        work_groups: "Work Projects"
-        invisible_groups: "Invisible Projects"
+        invisible_groups: Invisible Projects
+        work_groups: Work Projects
     persistent_selection:
+      clear_tooltip: Clear selected %{item_name}
       currently_selected: "%{item_name} currently selected"
-      select_all: "select all"
-      select_all_on_all_pages_tooltip: "Select all %{item_name} on all pages"
-      clear_tooltip: "Clear selected %{item_name}"
+      select_all: select all
+      select_all_on_all_pages_tooltip: Select all %{item_name} on all pages

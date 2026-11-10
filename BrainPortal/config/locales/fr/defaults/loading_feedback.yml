@@ -1,5 +1,6 @@
+---
 fr:
   loading_feedback:
-    loading: "Chargement…"
-    uploading: "Téléversement…"
-    error: "Erreur lors du chargement de l’élément"
+    error: Erreur lors du chargement de l’élément
+    loading: Chargement…
+    uploading: Téléversement…

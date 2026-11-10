@@ -1,6 +1,7 @@
+---
 en:
   activerecord:
     models:
       exception:
-        one: "Exception"
-        other: "Exceptions"
+        one: Exception
+        other: Exceptions

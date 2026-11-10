@@ -1,15 +1,14 @@
+---
 fr:
   help_documents:
     show:
       buttons:
-        show: "Afficher"
-        edit: "Modifier"
-        save: "Enregistrer"
-        remove: "Supprimer"
-        saving: "Enregistrement en cours..."
-        removing: "Suppression en cours..."
+        edit: Modifier
+        remove: Supprimer
+        removing: Suppression en cours...
+        save: Enregistrer
+        saving: Enregistrement en cours...
+        show: Afficher
       description_html: |
         Il n'existe actuellement aucune documentation sur ce sujet. <br />
         Ajoutez-en en utilisant le bouton de modification situé dans le coin supérieur gauche.
-
-

@@ -1,217 +1,114 @@
+---
 en:
   quotas:
     common:
       config_count:
-        one: "1 quota configuration"
+        one: 1 quota configuration
         other: "%{count} quota configurations"
+      confirm_delete_name: this quota entry
+      quota_record: Quota record
+      show_edit: Show/Edit
+      show_edit_label: Show/Edit %{label}
+      situation: Situation
       status:
-        ok: "OK"
-        exceeded: "Exceeded: %{what}"
-      show_edit: "Show/Edit"
-      show_edit_label: "Show/Edit %{label}"
-      table: "Table"
-      situation: "Situation"
-      quota_record: "Quota record"
-      confirm_delete_name: "this quota entry"
+        exceeded: 'Exceeded: %{what}'
+        ok: OK
+      table: Table
     cpu_quotas_table:
-      links:
-        config_count:
-          one: "1 CPU quota configuration"
-          other: "%{count} CPU quota configurations"
+      columns:
+        details: Details
+        execution_server: Execution Server
+        max_active_tasks: Max Active Tasks
+        max_cpu_total: Max CPU Total
+        max_monthly_cpu: Max Monthly CPU
+        max_weekly_cpu: Max Weekly CPU
+        my_usage: My Usage
+        operations: Operations
+        project: Project
+        user: User
       default:
-        all_users_in_project: "(For all users in project)"
-        all_users: "(Default for all Users)"
         all_servers: "(Default for all servers)"
-      varies_by_server: "(Varies by server)"
-      columns:
-        user: "User"
-        project: "Project"
-        execution_server: "Execution Server"
-        max_weekly_cpu: "Max Weekly CPU"
-        max_monthly_cpu: "Max Monthly CPU"
-        max_cpu_total: "Max CPU Total"
-        max_active_tasks: "Max Active Tasks"
-        my_usage: "My Usage"
-        details: "Details"
-        operations: "Operations"
-    cpu_report:
-      title: "Exceeded CPU Quotas"
-      links:
-        back_to_cpu_quotas: "Back To CPU Quotas"
-      headings:
-        user: "User"
-        execution_server: "Execution Server"
-        situation: "Situation"
-        details: "Details"
-        quota_record: "Quota Record"
-        usage_week: "Usage Past Week"
-        limit_week: "Limit Past Week"
-        usage_month: "Usage Past Month"
-        limit_month: "Limit Past Month"
-        usage_all: "Usage All Time"
-        limit_all: "Limit All Time"
-      exceeded:
-        week: "Past week CPU exceeded"
-        month: "Past month CPU exceeded"
-        ever: "Total lifetime CPU exceeded"
-      data:
-        table: "Table"
-        show_edit_cpu_quota: "Show/Edit CPU Quota"
-    disk_quotas_table:
+        all_users: "(Default for all Users)"
+        all_users_in_project: "(For all users in project)"
       links:
         config_count:
-          one: "1 disk quota configuration"
-          other: "%{count} disk quota configurations"
-        table: "Table"
-        show_edit: "Show/Edit"
-        show_edit_disk_quota: "Show/Edit Disk Quota"
+          one: 1 CPU quota configuration
+          other: "%{count} CPU quota configurations"
+      varies_by_server: "(Varies by server)"
+    cpu_report:
+      data:
+        show_edit_cpu_quota: Show/Edit CPU Quota
+        table: Table
+      exceeded:
+        ever: Total lifetime CPU exceeded
+        month: Past month CPU exceeded
+        week: Past week CPU exceeded
+      headings:
+        details: Details
+        execution_server: Execution Server
+        limit_all: Limit All Time
+        limit_month: Limit Past Month
+        limit_week: Limit Past Week
+        quota_record: Quota Record
+        situation: Situation
+        usage_all: Usage All Time
+        usage_month: Usage Past Month
+        usage_week: Usage Past Week
+        user: User
+      links:
+        back_to_cpu_quotas: Back To CPU Quotas
+      title: Exceeded CPU Quotas
+    disk_quotas_table:
       columns:
-        user: "User"
+        data_provider: Data Provider
         default_for_all_users: "(Default for all Users)"
-        data_provider: "Data Provider"
-        max_size: "Max Size"
-        max_files: "Max Files"
-        my_usage: "My Usage"
-        details: "Details"
-        operations: "Operations"
+        details: Details
+        max_files: Max Files
+        max_size: Max Size
+        my_usage: My Usage
+        operations: Operations
+        user: User
       disk_usage_html: "(%{size} and %{files} files)"
+      links:
+        config_count:
+          one: 1 disk quota configuration
+          other: "%{count} disk quota configurations"
+        show_edit: Show/Edit
+        show_edit_disk_quota: Show/Edit Disk Quota
+        table: Table
     disk_report:
-      title: "Exceeded Disk Quotas"
-      links:
-        back_to_disk_quotas: "Back To Disk Quotas"
-        table: "Table"
-        show_edit_disk_quota: "Show/Edit Disk Quota"
       headings:
-        user: "User"
-        data_provider: "Data Provider"
-        situation: "Situation"
-        details: "Details"
-        quota_record: "Quota Record"
-        size: "Size"
-        size_quota: "Size quota"
-        num_files: "Number of files"
-        num_files_quota: "Number of files quota"
+        data_provider: Data Provider
+        details: Details
+        num_files: Number of files
+        num_files_quota: Number of files quota
+        quota_record: Quota Record
+        situation: Situation
+        size: Size
+        size_quota: Size quota
+        user: User
       labels:
-        user_quota: "(User Quota)"
         dp_quota: "(DP Quota)"
-    show_cpu_quota:
-      titles:
-        create: "Create CPU Quota"
-        edit: "Edit CPU Quota"
-        log: "CPU Quota Record Log"
+        user_quota: "(User Quota)"
       links:
-        cpu_quotas_table: "CPU Quotas Table"
-        new_cpu_quota: "New CPU Quota"
-      headings:
-        record: "CPU Quota Record"
-        max_cpu_week: "Max CPU time past week"
-        max_cpu_month: "Max CPU time past month"
-        max_cpu_total: "Max CPU time in total"
-        max_active_tasks: "Max Active Tasks"
-      cells:
-        user: "User"
-        project: "Project"
-        execution_server: "Execution Server"
-      blanks:
-        any_project: "(Any Project)"
-        any_execution_server: "(Any Execution Server)"
-        default_all_users: "(Default for all Users)"
-      divs:
-        user_html: |
-          <div class="field_explanation">
-            You can leave the user field blank and instead specify a project, below.
-            You can also leave them both blank.
-          </div>
-        project_html: |
-          <div class="field_explanation">
-            Instead of specifying a user, above, you can select a project, and the quota
-            will apply to all users of that project. User and Project are mutually exclusive
-            in a CPU quota. You can also leave them both blank.
-          </div>
-        execution_server_html: |
-          <div class="field_explanation">
-            You can leave this blank, but then you must provide either a user or a project, above.
-          </div>
-        max_cpu_past_week_html: |
-          <div class="field_explanation">
-            The limit CPU time is in seconds; when entering a new value,
-            you can use a unit as a suffix, such as in
-            <em>3.5h</em> (hours), <em>7d</em> (days), <em>4w</em> (weeks),
-            <em>3m</em> (months) and <em>1y</em> (years).
-            There are no suffixes for seconds and minutes.
-            A value of <em>0</em> means no time is allowed at all.
-          </div>
-        max_cpu_past_month_html: |
-          <div class="field_explanation">
-            See the explanations for Max CPU time past months.
-          </div>
-        max_cpu_ever_html: |
-          <div class="field_explanation">
-            See the explanations for Max CPU time past week.
-          </div>
-        max_active_tasks_html: |
-          <div class="field_explanation">
-            The maximum number of tasks that can be active at any given time on the Execution Server.
-            Leave blank to not set a limit. A value of zero will prevent any tasks from being launched.
-            Note that projects are ignored for these values, and that if several quota records apply
-            to a user and differ only by project, the minimum value found in that set will be used.
-            The core Admin account is used to set a maximum number of tasks IN TOTAL for an Execution
-            server (thus, no limit specific to that admin user can be specified here).
-          </div>
-    show_disk_quota:
-      titles:
-        create: "Create Disk Quota"
-        edit: "Edit Disk Quota"
-        log: "Disk Quota Record Log"
-      links:
-        disk_quotas_table: "Disk Quotas Table"
-        new_disk_quota: "New Disk Quota"
-        new_quota_same_provider: "New Quota With Same Provider"
-        new_quota_same_user: "New Quota With Same User"
-      headings:
-        record: "Disk Quota Record"
-        max_disk_space: "Max Disk Space"
-        max_num_files: "Max Number Of Files"
-      columns:
-        user: "User"
-        data_provider: "Data Provider"
-      blanks:
-        default_all_users: "(Default for all Users)"
-        select_data_provider: "(Select a DataProvider)"
-      divs:
-        max_bytes_html: |
-          <div class="field_explanation">
-            Sizes are in bytes; when entering a new value,
-            you can use a unit as a suffix, such as in <em>2.3 kb</em> and <em>10 G</em>.
-            A value of <em>0</em> means no files allowed at all.
-          </div>
-        max_files_html: |
-          <div class="field_explanation">
-            A value of <em>0</em> means no files allowed at all.
-          </div>
+        back_to_disk_quotas: Back To Disk Quotas
+        show_edit_disk_quota: Show/Edit Disk Quota
+        table: Table
+      title: Exceeded Disk Quotas
     index:
-      title: "%{mode} Quotas Configurations"
-      mode:
-        disk: "Disk"
-        cpu: "CPU"
-      about: "About"
-      links:
-        exceeded_report: "Exceeded %{mode} Quotas Report"
-        new_entry: "New %{mode} Quota Entry"
-        to_disk: "Switch to Disk Quotas"
-        to_cpu: "Switch to CPU Quotas"
+      about: About
       legends:
-        about_disk: "About Disk Quotas"
-        about_cpu: "About CPU Quotas"
+        about_cpu: About CPU Quotas
+        about_disk: About Disk Quotas
+      links:
+        exceeded_report: Exceeded %{mode} Quotas Report
+        new_entry: New %{mode} Quota Entry
+        to_cpu: Switch to CPU Quotas
+        to_disk: Switch to Disk Quotas
+      mode:
+        cpu: CPU
+        disk: Disk
       paragraphs:
-        disk_quota_explanations_html: |
-          <p class="long_paragraphs">
-          This page shows the limits for the amount of disk space and number
-          of files that can be stored on each DataProvider. Each row is
-          a quota entry that applies to a user or all users, for a particular
-          DataProvider. When a user exceeds the one of the two limits for
-          a DataProvider, the user will no longer be able to create new
-          files.
         cpu_quota_explanations_html: |
           <p class="long_paragraphs">
           This page shows the limits for the amount of CPU processing time
@@ -227,3 +124,107 @@ en:
           When a user has exceeded their quota on an Execution Server, their
           tasks in status 'New' will not be set up, and they will stay in 'New'
           until the quota window has moved ahead far enough to free some time.
+        disk_quota_explanations_html: |
+          <p class="long_paragraphs">
+          This page shows the limits for the amount of disk space and number
+          of files that can be stored on each DataProvider. Each row is
+          a quota entry that applies to a user or all users, for a particular
+          DataProvider. When a user exceeds the one of the two limits for
+          a DataProvider, the user will no longer be able to create new
+          files.
+      title: "%{mode} Quotas Configurations"
+    show_cpu_quota:
+      blanks:
+        any_execution_server: "(Any Execution Server)"
+        any_project: "(Any Project)"
+        default_all_users: "(Default for all Users)"
+      cells:
+        execution_server: Execution Server
+        project: Project
+        user: User
+      divs:
+        execution_server_html: |
+          <div class="field_explanation">
+            You can leave this blank, but then you must provide either a user or a project, above.
+          </div>
+        max_active_tasks_html: |
+          <div class="field_explanation">
+            The maximum number of tasks that can be active at any given time on the Execution Server.
+            Leave blank to not set a limit. A value of zero will prevent any tasks from being launched.
+            Note that projects are ignored for these values, and that if several quota records apply
+            to a user and differ only by project, the minimum value found in that set will be used.
+            The core Admin account is used to set a maximum number of tasks IN TOTAL for an Execution
+            server (thus, no limit specific to that admin user can be specified here).
+          </div>
+        max_cpu_ever_html: |
+          <div class="field_explanation">
+            See the explanations for Max CPU time past week.
+          </div>
+        max_cpu_past_month_html: |
+          <div class="field_explanation">
+            See the explanations for Max CPU time past months.
+          </div>
+        max_cpu_past_week_html: |
+          <div class="field_explanation">
+            The limit CPU time is in seconds; when entering a new value,
+            you can use a unit as a suffix, such as in
+            <em>3.5h</em> (hours), <em>7d</em> (days), <em>4w</em> (weeks),
+            <em>3m</em> (months) and <em>1y</em> (years).
+            There are no suffixes for seconds and minutes.
+            A value of <em>0</em> means no time is allowed at all.
+          </div>
+        project_html: |
+          <div class="field_explanation">
+            Instead of specifying a user, above, you can select a project, and the quota
+            will apply to all users of that project. User and Project are mutually exclusive
+            in a CPU quota. You can also leave them both blank.
+          </div>
+        user_html: |
+          <div class="field_explanation">
+            You can leave the user field blank and instead specify a project, below.
+            You can also leave them both blank.
+          </div>
+      headings:
+        max_active_tasks: Max Active Tasks
+        max_cpu_month: Max CPU time past month
+        max_cpu_total: Max CPU time in total
+        max_cpu_week: Max CPU time past week
+        record: CPU Quota Record
+      links:
+        cpu_quotas_table: CPU Quotas Table
+        new_cpu_quota: New CPU Quota
+      titles:
+        create: Create CPU Quota
+        edit: Edit CPU Quota
+        log: CPU Quota Record Log
+    show_disk_quota:
+      blanks:
+        default_all_users: "(Default for all Users)"
+        select_data_provider: "(Select a DataProvider)"
+      columns:
+        data_provider: Data Provider
+        user: User
+      divs:
+        max_bytes_html: |
+          <div class="field_explanation">
+            Sizes are in bytes; when entering a new value,
+            you can use a unit as a suffix, such as in <em>2.3 kb</em> and <em>10 G</em>.
+            A value of <em>0</em> means no files allowed at all.
+          </div>
+        max_files_html: |
+          <div class="field_explanation">
+            A value of <em>0</em> means no files allowed at all.
+          </div>
+      headings:
+        max_disk_space: Max Disk Space
+        max_num_files: Max Number Of Files
+        record: Disk Quota Record
+      links:
+        disk_quotas_table: Disk Quotas Table
+        new_disk_quota: New Disk Quota
+        new_quota_same_provider: New Quota With Same Provider
+        new_quota_same_user: New Quota With Same User
+      titles:
+        create: Create Disk Quota
+        edit: Edit Disk Quota
+        log: Disk Quota Record Log

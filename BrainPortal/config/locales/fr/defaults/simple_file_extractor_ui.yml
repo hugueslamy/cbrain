@@ -1,20 +1,21 @@
+---
 fr:
   simple_file_extractor_ui:
-    inputs: "Résumé des entrées"
-    patterns: "Motifs d’extraction :"
-    about: "À propos de ces motifs :"
-    output: "Nom du fichier de sortie"
-    intro_html: "Ces motifs sont des <em>motifs de recherche de fichiers</em> de style UNIX, et non des <em>expressions régulières</em>."
-    asterisk: "Un astérisque correspond à zéro, un ou plusieurs caractères, sauf « / »."
-    question: "Un point d’interrogation correspond à un seul caractère, sauf « / »."
-    prefix_html: "En général, les motifs commencent par <em>*/</em>, car le premier élément doit correspondre au nom des FileCollections."
-    help: "Consultez le lien d’aide ci-dessus pour plus d’informations et des exemples."
-    toggle: "(Afficher/Masquer)"
+    about: 'À propos de ces motifs :'
+    asterisk: Un astérisque correspond à zéro, un ou plusieurs caractères, sauf « / ».
     files:
       one: "%{count} fichier à traiter :"
       other: "%{count} fichiers à traiter :"
+    final: 'Fichier final :'
+    help: Consultez le lien d’aide ci-dessus pour plus d’informations et des exemples.
+    inputs: Résumé des entrées
+    intro_html: Ces motifs sont des <em>motifs de recherche de fichiers</em> de style UNIX, et non des <em>expressions régulières</em>.
     more:
       one: "%{count} fichier supplémentaire…"
       other: "%{count} fichiers supplémentaires…"
-    outputs: "Sortie :"
-    final: "Fichier final :"
+    output: Nom du fichier de sortie
+    outputs: 'Sortie :'
+    patterns: 'Motifs d’extraction :'
+    prefix_html: En général, les motifs commencent par <em>*/</em>, car le premier élément doit correspondre au nom des FileCollections.
+    question: Un point d’interrogation correspond à un seul caractère, sauf « / ».
+    toggle: "(Afficher/Masquer)"

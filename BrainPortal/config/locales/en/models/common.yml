@@ -1,29 +1,34 @@
+---
 en:
-  attributes:
-    category: "Category"
-    city: "City"
-    country: "Country"
-    yearmonth: "Year/Month"
-    name: "Name"
-    description: "Description"
-    status: "Status"
-    type: "Type"
-    size: "Size"
-    color: "Color"
-    time_zone: "Time Zone"
-    license_agreements: "License Agreements"
-    id: "ID"
-    created_at: "Created At"
-    updated_at: "Updated At"
-    user_id: &user "User"
-    user: *user
-    group_id: &group "Project"
-    group: *group
-    site_id: &site "Site"
-    site: *site
-    online: "Online"
   activerecord:
     errors:
       messages:
-        missing_license_files:        "Some licence agreement files do not exist: %{list}\nPlease place the license file(s) in /public/licenses or unconfigure it.\n"
-        missing_custom_license_files: "Some license agreement files do not exist: %{list}\nPlease inform the maintainers or admins to fix issues with files.\n"
+        missing_custom_license_files: |
+          Some license agreement files do not exist: %{list}
+          Please inform the maintainers or admins to fix issues with files.
+        missing_license_files: |
+          Some licence agreement files do not exist: %{list}
+          Please place the license file(s) in /public/licenses or unconfigure it.
+  attributes:
+    category: Category
+    city: City
+    color: Color
+    country: Country
+    created_at: Created At
+    description: Description
+    group: Project
+    group_id: Project
+    id: ID
+    license_agreements: License Agreements
+    name: Name
+    online: Online
+    site: Site
+    site_id: Site
+    size: Size
+    status: Status
+    time_zone: Time Zone
+    type: Type
+    updated_at: Updated At
+    user: User
+    user_id: User
+    yearmonth: Year/Month

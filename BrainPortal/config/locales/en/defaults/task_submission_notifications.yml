@@ -1,5 +1,6 @@
+---
 en:
   task_submission_notifications:
     submitted:
-      one: "Submitted %{count} %{tool} task; some messages follow."
-      other: "Submitted %{count} %{tool} tasks; some messages follow."
+      one: Submitted %{count} %{tool} task; some messages follow.
+      other: Submitted %{count} %{tool} tasks; some messages follow.

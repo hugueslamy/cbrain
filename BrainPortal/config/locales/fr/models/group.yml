@@ -1,6 +1,7 @@
+---
 fr:
   activerecord:
     models:
       group:
-        one: "Projet"
-        other: "Projets"
+        one: Projet
+        other: Projets

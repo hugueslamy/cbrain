@@ -115,6 +115,10 @@ group :development, :test do
 
   # Omakase Ruby styling [https://github.com/rails/rubocop-rails-omakase/]
   gem "rubocop-rails-omakase", require: false
+
+  # Finds missing and unused translation keys across locales (see
+  # config/i18n-tasks.yml and spec/i18n_spec.rb).
+  gem "i18n-tasks", require: false
 end
 
 #----------------------

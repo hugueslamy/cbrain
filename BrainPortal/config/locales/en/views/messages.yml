@@ -1,80 +1,81 @@
+---
 en:
   messages:
     common:
-      mark_as_html: "Mark&nbsp;as&nbsp;%{state}"
-      updating: "Updating..."
-      deleting: "Deleting..."
-      labels:
-        system: "System"
-        state_read: "Read"
-        state_unread: "Unread"
-        expiry_date: "Expiration date (current time: %{time})"
-      time_ago:
-        ten_minutes: "Ten minutes"
-        one_hour: "One hour"
-        one_day: "One day"
-        two_days: "Two days"
-        one_week: "One week"
-        one_month: "One month"
-        two_months: "Two months"
-        one_year: "One year"
       columns:
-        sender: "Sender"
-        recipient: "Recipient"
-        last_updated: "Last Updated"
-        operations: "Operations"
+        last_updated: Last Updated
+        operations: Operations
+        recipient: Recipient
+        sender: Sender
+      deleting: Deleting...
+      labels:
+        expiry_date: 'Expiration date (current time: %{time})'
+        state_read: Read
+        state_unread: Unread
+        system: System
+      mark_as_html: Mark&nbsp;as&nbsp;%{state}
       message_count:
-        one: "1 message"
+        one: 1 message
         other: "%{count} messages"
+      time_ago:
+        one_day: One day
+        one_hour: One hour
+        one_month: One month
+        one_week: One week
+        one_year: One year
+        ten_minutes: Ten minutes
+        two_days: Two days
+        two_months: Two months
+      updating: Updating...
+    index:
+      title: Messaging Center
+      unread_count:
+        one: 1 unread message
+        other: "%{count} unread messages"
     message_details:
       paragraphs:
-        expires: "Expires:"
+        expires: 'Expires:'
         no_details: "(No Details)"
     message_display:
-      rescue: "Oh oh. Talk to devs!"
+      rescue: Oh oh. Talk to devs!
     message_index_display:
-      links:
-        leave_message: "Leave Message"
       buttons:
-        delete_checked: "Delete Checked Messages"
-        delete_name: "the selected messages"
-      scopes:
-        unread_link: "%{count} unread"
-        read_link: "%{count} read"
-      labels:
-        base: "%{label} (of %{base})"
+        delete_checked: Delete Checked Messages
+        delete_name: the selected messages
       columns:
         criticality:
-          critical: "Critical"
-          not_critical: "Not critical"
-        type: "Type"
-        message: "Message"
-        sender: "Sender"
-        recipient: "Recipient"
-        last_updated: "Last Updated"
-        operations: "Operations"
-    index:
-      title: "Messaging Center"
-      unread_count:
-        one: "1 unread message"
-        other: "%{count} unread messages"
+          critical: Critical
+          not_critical: Not critical
+        last_updated: Last Updated
+        message: Message
+        operations: Operations
+        recipient: Recipient
+        sender: Sender
+        type: Type
+      labels:
+        base: "%{label} (of %{base})"
+      links:
+        leave_message: Leave Message
+      scopes:
+        read_link: "%{count} read"
+        unread_link: "%{count} unread"
+    new:
+      labels:
+        send_email: Send E-mail
+      links:
+        new_cbrain_dashboard: New CBRAIN Dashboard Message
+      message_types:
+        error: Error
+        notice: Notice
+        system: System
+      title: Add New Message
+      to_users_of_project: 'To users of project:'
     new_dashboard:
-      title: "Add New Dashboard Message"
-      headings:
-        main: "Add New Dashboard Message"
       explanations:
         dashboard_html: |
           For dashboard messages, whatever is entered here will be substituted literally
           in the page's code. So you can use whatever HTML elements you want, but make sure
           you know what you're doing.
-    new:
-      message_types:
-        system: "System"
-        notice: "Notice"
-        error: "Error"
-      title: "Add New Message"
-      links:
-        new_cbrain_dashboard: "New CBRAIN Dashboard Message"
-      to_users_of_project: "To users of project:"
-      labels:
-        send_email: "Send E-mail"
+      headings:
+        main: Add New Dashboard Message
+      title: Add New Dashboard Message

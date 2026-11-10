@@ -1,9 +1,10 @@
+---
 fr:
   activerecord:
     models:
       tag:
-        one: "Label"
-        other: "Labels"
+        one: Label
+        other: Labels
       tag_downcase:
-        one: "label"
-        other: "labels"
+        one: label
+        other: labels

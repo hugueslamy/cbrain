@@ -1,103 +1,72 @@
+---
 en:
   users:
+    change_password:
+      headings:
+        main: Change Password
+        message: Password could not be updated.
+      labels:
+        confirm_new_password: 'Confirm new password:'
+        force_password_reset: 'User WILL need to reset own password:'
+        new_password: 'New password:'
+      title: Change Password
     common:
       select_site: "(Select a site)"
-      used: "%{size} used"
       unkn: "%{count} unkn"
-    users_table:
-      links:
-        create_user: "Create User"
-        active_count: "%{count} active"
-        locked_count: "%{count} locked"
-        access: "Access"
-      columns:
-        login: "Login"
-        full_name: "Full Name"
-        email: "E-mail"
-        position: "Position"
-        affiliation: "Affiliation"
-        last_connection: "Last Connection"
-        groups: "Projects"
-        role: "Role"
-        site: "Site"
-        city: "City"
-        country: "Country"
-        timezone: "Time Zone"
-        files: "Files"
-        tasks: "Tasks"
-        switch: "Switch"
-        access: "Access"
-      user_count:
-        one: "1 user"
-        other: "%{count} users"
-      unlocked: "Unlocked"
-      locked: "Locked"
-      label_of: "%{label} (of %{base})"
-      last_connection: "Last Connection"
-      project_count:
-        one: "1 project"
-        other: "%{count} projects"
-      role: "Role"
-      access: "Access"
-      access_q: "Access?"
-    change_password:
-      title: "Change Password"
-      headings:
-        main: "Change Password"
-        message: "Password could not be updated."
-      labels:
-        new_password: "New password:"
-        confirm_new_password: "Confirm new password:"
-        force_password_reset: "User WILL need to reset own password:"
+      used: "%{size} used"
     index:
-      title: "Users"
+      title: Users
     new:
-      title: "Add New User"
       headings:
-        main: "Add New User"
-        basic_information: "Basic Information"
-        access_profile: "Access Profile"
-        project_membership: "Project Membership"
+        access_profile: Access Profile
+        basic_information: Basic Information
+        main: Add New User
+        project_membership: Project Membership
       labels:
-        full_name: "Full Name"
-        login: "Login"
-        email: "Email"
-        position: "Position"
-        affiliation: "Affiliation"
-        city: "City"
-        country: "Country"
-        time_zone: "Time Zone"
-        type: "Type"
-        site: "Site"
-        pref_data_provider_id: "Default Data Provider"
-        allowed_globus_provider_names: "Forced OpenID Identity Providers"
-        password: "Password"
-        confirm_password: "Confirm Password"
-        no_password_reset: "No need to reset initial password:"
+        affiliation: Affiliation
+        allowed_globus_provider_names: Forced OpenID Identity Providers
+        city: City
+        confirm_password: Confirm Password
+        country: Country
+        email: Email
+        full_name: Full Name
+        login: Login
+        no_password_reset: 'No need to reset initial password:'
+        password: Password
+        position: Position
+        pref_data_provider_id: Default Data Provider
+        site: Site
+        time_zone: Time Zone
+        type: Type
       paragraphs:
-        login_html: |
-          <span class="field_explanation">
-            For <strong>Tom Jones</strong>, use <strong>tjones</strong>, not 'tom' or 'jones'.
-          </span>
         dp_html: |
           <span class="field_explanation">
             If set, make sure it is a Data Provider that will be accessible to the user
+          </span>
+        login_html: |
+          <span class="field_explanation">
+            For <strong>Tom Jones</strong>, use <strong>tjones</strong>, not 'tom' or 'jones'.
           </span>
         openid_html: |
           <span class="field_explanation">
             If set, must be exact OpenID identity provider names separated by commas
             A single '*' is also allowed to mean any provider name.
           </span>
-      submit: "Create User"
+      submit: Create User
+      title: Add New User
     new_token:
-      title: "New API Token"
       headings:
-        main: "New API Token"
-      titles:
-        notes: "A few notes about this token"
-        copy_tooltip: "Click this button to copy the API token to the clipboard"
+        main: New API Token
+      labels:
+        copy: copy
+      li:
+        copy_html: To copy the token to your clipboard, simply click the copy button located to the right of the token. The token will be saved to your clipboard.<br />Please do not forget to paste and save the token. You will not be able to see it again.
+        ip_invalid_html: If a subsequent connection comes from any other IP address at any time,<br />the token will immediately be invalidated.
+        ip_lock_html: The first time it is used, the IP address of the connecting client will be<br />recorded and only connections from that IP address will be valid.
+        renewal: Every time a request is made with it, it becomes valid for another %{duration}.
+        validity: This token will only be valid for %{duration}.
       paragraphs:
-        generated_intro: "We have just generated a new API token for you."
+        generated_intro: We have just generated a new API token for you.
         token_html: |
           If you are a developer and want to automate working
           with CBRAIN or NeuroHub, this token will be needed
@@ -106,104 +75,136 @@ en:
           Refer to the CBRAIN API documentation
           for more information.
           <p>
-      labels:
-        copy: "copy"
-      li:
-        validity: "This token will only be valid for %{duration}."
-        renewal: "Every time a request is made with it, it becomes valid for another %{duration}."
-        ip_lock_html: "The first time it is used, the IP address of the connecting client will be<br />recorded and only connections from that IP address will be valid."
-        ip_invalid_html: "If a subsequent connection comes from any other IP address at any time,<br />the token will immediately be invalidated."
-        copy_html: "To copy the token to your clipboard, simply click the copy button located to the right of the token. The token will be saved to your clipboard.<br />Please do not forget to paste and save the token. You will not be able to see it again."
-    request_password:
-      title: "Lost Password?"
-      headings:
-        main: "Lost password? Fill this form, we'll contact you."
-      labels:
-        login: "CBRAIN login:"
-        email: "E-mail address on your CBRAIN account:"
-      submit: "Submit"
-    show:
-      title: "Account Info"
+      title: New API Token
       titles:
-        user_activity_report: "User activity report"
-      links:
-        tool_access_reports: "Tool Access Reports"
-        switch_to_user: "Switch To User"
-        report_maker: "Report Maker"
-        change_password: "Change Password"
-        generate_api_token: "Generate new API token"
-        unlink_identity: "Unlink this %{name} identity"
-        link_identity: "Link a %{name} identity"
-      prompts:
-        select_site: "(Select a site)"
-      cells:
-        login: "Login"
-        last_connected: "Last Connected"
-        never: "(Never)"
-        public_key: "Public Key"
-        provider: "%{name} Provider"
-        orcid_identity: "ORCID Identity"
-        active_sessions: "Active Sessions"
-        files: "Files"
-        tasks: "Tasks"
-        data_providers: "Data Providers"
-        historical_storage: "Historical Storage"
-        historical_cpu_time: "Historical CPU Time"
-        tools: "Tools"
-        portal: "Portal"
-        execution: "Execution"
-        installation_sites: "Installation Sites"
+        copy_tooltip: Click this button to copy the API token to the clipboard
+        notes: A few notes about this token
+    request_password:
       headings:
-        message: "User could not be updated."
-        pref_data_provider_id: "Default Data Provider"
-        pref_bourreau_id: "Default Execution Server"
-        account_locked: "Account Locked"
-        ip_whitelist: "Source IP Whitelist"
-        allowed_globus_provider_names: "Forced OpenID Providers"
-        ssh_key: "Your System SSH Key"
-        sessions_tokens: "Sessions And Tokens"
-        zenodo_publishing: "Zenodo Publishing"
-        zenodo_sandbox_token: "Zenodo Sandbox Token"
-        zenodo_official_token: "Zenodo Official Token"
-        license_agreements: "License Agreements"
-        linked_identities: "Linked Identities"
-        provider_name: "Provider name:"
-        provider_user: "Provider user:"
-        ip: "IP"
-        last_access: "Last access"
-        resources: "Resources"
-        access_profiles: "Access Profiles"
-        groups: "Projects"
-        project_name: "Project Name"
-        project_type: "Project Type"
-        members: "Members"
+        main: Lost password? Fill this form, we'll contact you.
+      labels:
+        email: 'E-mail address on your CBRAIN account:'
+        login: 'CBRAIN login:'
+      submit: Submit
+      title: Lost Password?
+    show:
+      cells:
+        active_sessions: Active Sessions
+        data_providers: Data Providers
+        execution: Execution
+        files: Files
+        historical_cpu_time: Historical CPU Time
+        historical_storage: Historical Storage
+        installation_sites: Installation Sites
+        last_connected: Last Connected
+        login: Login
+        never: "(Never)"
+        orcid_identity: ORCID Identity
+        portal: Portal
+        provider: "%{name} Provider"
+        public_key: Public Key
+        tasks: Tasks
+        tools: Tools
+      confirms:
+        unlink: Are you sure you want to unlink your account with this %{name} identity?
+      datas:
+        last_pushed: 'Last pushed: %{date}'
+        no_ip_yet: "(None yet)"
+        push: 'Push:'
+      headings:
+        access_profiles: Access Profiles
+        account_locked: Account Locked
+        allowed_globus_provider_names: Forced OpenID Providers
+        groups: Projects
+        ip: IP
+        ip_whitelist: Source IP Whitelist
+        last_access: Last access
+        license_agreements: License Agreements
+        linked_identities: Linked Identities
+        members: Members
+        message: User could not be updated.
+        pref_bourreau_id: Default Execution Server
+        pref_data_provider_id: Default Data Provider
+        project_name: Project Name
+        project_type: Project Type
+        provider_name: 'Provider name:'
+        provider_user: 'Provider user:'
+        resources: Resources
+        sessions_tokens: Sessions And Tokens
+        ssh_key: Your System SSH Key
+        zenodo_official_token: Zenodo Official Token
+        zenodo_publishing: Zenodo Publishing
+        zenodo_sandbox_token: Zenodo Sandbox Token
+      links:
+        change_password: Change Password
+        generate_api_token: Generate new API token
+        link_identity: Link a %{name} identity
+        report_maker: Report Maker
+        switch_to_user: Switch To User
+        tool_access_reports: Tool Access Reports
+        unlink_identity: Unlink this %{name} identity
+      no_identity: "(No %{name} identity linked to your account)"
+      no_orcid: "(No ORCID identity linked to your account)"
+      orcid_id: 'ORCID ID:'
       paragraphs:
-        ip_whitelist_html: |
-          <div class="field_explanation">
-            Comma-separated list of allowed source IPs (X.X.X.X/XX) for the user to connect from.
-          </div>
         allowed_globus_provider_names_html: |
           <div class="field_explanation">
             If set, must be a list of OpenID identity provider names separated by commas. A single '*' is
             also allowed to mean any provider name.
           </div>
-        zenodo_sandbox_token_html: |
-          <div class="wide_field_explanation">
-            This token can be used for creating <strong>temporary/test</strong> Zenodo data deposits.<p>
-            You can create a token at <a href="https://sandbox.zenodo.org/account/settings/applications/" target="_blank">https://sandbox.zenodo.org/account/settings/applications/</a>.
+        ip_whitelist_html: |
+          <div class="field_explanation">
+            Comma-separated list of allowed source IPs (X.X.X.X/XX) for the user to connect from.
           </div>
         zenodo_main_token_html: |
           <div class="wide_field_explanation">
             This token can be used for creating <strong>real, official and permanent</strong> Zenodo data deposits.<p>
             You can create a token at <a href="https://zenodo.org/account/settings/applications/" target="_blank">https://zenodo.org/account/settings/applications/</a>.
           </div>
-      datas:
-        last_pushed: "Last pushed: %{date}"
-        push: "Push:"
-        no_ip_yet: "(None yet)"
-      confirms:
-        unlink: "Are you sure you want to unlink your account with this %{name} identity?"
-      no_identity: "(No %{name} identity linked to your account)"
-      orcid_id: "ORCID ID:"
-      no_orcid: "(No ORCID identity linked to your account)"
-      submit: "Update Projects"
+        zenodo_sandbox_token_html: |
+          <div class="wide_field_explanation">
+            This token can be used for creating <strong>temporary/test</strong> Zenodo data deposits.<p>
+            You can create a token at <a href="https://sandbox.zenodo.org/account/settings/applications/" target="_blank">https://sandbox.zenodo.org/account/settings/applications/</a>.
+          </div>
+      prompts:
+        select_site: "(Select a site)"
+      submit: Update Projects
+      title: Account Info
+      titles:
+        user_activity_report: User activity report
+    users_table:
+      access: Access
+      access_q: Access?
+      columns:
+        access: Access
+        affiliation: Affiliation
+        city: City
+        country: Country
+        email: E-mail
+        files: Files
+        full_name: Full Name
+        groups: Projects
+        last_connection: Last Connection
+        login: Login
+        position: Position
+        role: Role
+        site: Site
+        switch: Switch
+        tasks: Tasks
+        timezone: Time Zone
+      label_of: "%{label} (of %{base})"
+      last_connection: Last Connection
+      links:
+        access: Access
+        active_count: "%{count} active"
+        create_user: Create User
+        locked_count: "%{count} locked"
+      locked: Locked
+      project_count:
+        one: 1 project
+        other: "%{count} projects"
+      role: Role
+      unlocked: Unlocked
+      user_count:
+        one: 1 user
+        other: "%{count} users"

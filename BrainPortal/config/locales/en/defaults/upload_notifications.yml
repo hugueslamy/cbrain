@@ -1,5 +1,6 @@
+---
 en:
   upload_notifications:
-    file: "File Uploaded"
-    collection: "Collection Uploaded"
-    failed: "Failed to upload collection"
+    collection: Collection Uploaded
+    failed: Failed to upload collection
+    file: File Uploaded

@@ -1,8 +1,9 @@
+---
 en:
   boutiques_preview:
-    unequal: "Warning: cbcsvs with multiple unequal lengths detected"
-    current: "Parameters for current task"
-    constant: "Parameters that are constant across tasks"
-    changing: "Parameter values that change across tasks:"
-    task: "Task"
-    enabled: "True"
+    changing: 'Parameter values that change across tasks:'
+    constant: Parameters that are constant across tasks
+    current: Parameters for current task
+    enabled: 'True'
+    task: Task
+    unequal: 'Warning: cbcsvs with multiple unequal lengths detected'

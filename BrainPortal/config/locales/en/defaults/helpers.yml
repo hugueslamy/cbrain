@@ -1,130 +1,131 @@
+---
 en:
-  background_activities:
-    failed: "Failed"
-    one_shot: "One shot"
-    every_X: "Every %{count}"
+  abbreviations:
+    A: A
+    H: H
+    I: I
   access_profiles:
-    white: "white"
+    white: white
   ajax_widget:
-    loading: "Loading..."
+    loading: Loading...
+  background_activities:
+    every_X: Every %{count}
+    failed: Failed
+    one_shot: One shot
   date_range:
     attributes:
-      by_creation_date: "By creation date"
-      by_update_date:   "By update date"
-    groups:
-      past_24_hours: "Past 24 Hours"
-      days:          "Days"
-      weeks:         "Weeks"
-      months:        "Months"
-      years:         "Years"
-    offsets:
-      right_now: "Right now"
-      big_bang:  "The Big Bang"
-      hours_ago:
-        one:   "1 hour ago"
-        other: "%{count} hours ago"
-      days_ago:
-        one:   "1 day ago"
-        other: "%{count} days ago"
-      weeks_ago:
-        one:   "1 week ago"
-        other: "%{count} weeks ago"
-      months_ago:
-        one:   "1 month ago"
-        other: "%{count} months ago"
-      years_ago:
-        one:   "1 year ago"
-        other: "%{count} years ago"
+      by_creation_date: By creation date
+      by_update_date: By update date
     errors:
-      absolute_from_missing: "You should enter an absolute 'from' date or de-select the radio button"
-      absolute_to_missing:   "You should enter an absolute 'to' date or de-select the radio button"
-      same_relative_dates:   "You should choose 2 differents relatives dates"
-  abbreviations:
-    A: "A"
-    H: "H"
-    I: "I"
-  quotas:
-    none_allowed: "None allowed"
-    last_week: "last week;"
-    last_month: "last month;"
-    total: "total"
-    unlimited: "(Unlimited)"
-    one_task: "1 task"
-    multiple_tasks: "%{count} tasks"
-  resource_usage:
-    second: "second"
-  resource_link:
-    error: "This method requires the first argument to be a User object."
-    last_activity: "Last Activity"
+      absolute_from_missing: You should enter an absolute 'from' date or de-select the radio button
+      absolute_to_missing: You should enter an absolute 'to' date or de-select the radio button
+      same_relative_dates: You should choose 2 differents relatives dates
+    groups:
+      days: Days
+      months: Months
+      past_24_hours: Past 24 Hours
+      weeks: Weeks
+      years: Years
+    offsets:
+      big_bang: The Big Bang
+      days_ago:
+        one: 1 day ago
+        other: "%{count} days ago"
+      hours_ago:
+        one: 1 hour ago
+        other: "%{count} hours ago"
+      months_ago:
+        one: 1 month ago
+        other: "%{count} months ago"
+      right_now: Right now
+      weeks_ago:
+        one: 1 week ago
+        other: "%{count} weeks ago"
+      years_ago:
+        one: 1 year ago
+        other: "%{count} years ago"
   dynamic_table:
-    raise: "Cannot fetch field %{field_name} from %{obj}"
-  zenodo:
-    deposit: "Deposit %{id}"
-    sandbox_deposit: " (sandbox)"
+    raise: Cannot fetch field %{field_name} from %{obj}
+  quotas:
+    last_month: last month;
+    last_week: last week;
+    multiple_tasks: "%{count} tasks"
+    none_allowed: None allowed
+    one_task: 1 task
+    total: total
+    unlimited: "(Unlimited)"
+  resource_link:
+    error: This method requires the first argument to be a User object.
+    last_activity: Last Activity
+  resource_usage:
+    second: second
   rich_ui:
-    copied: "Copied!"
-    copy_to_clipboard: "copy to clipboard"
+    copied: Copied!
+    copy_to_clipboard: copy to clipboard
+  scope_filters:
+    attributes:
+      project: Project
+      server: Server
+      version: Version
+    flags:
+      critical: Critical
+      email_confirmed: Email Confirmed
+      email_not_confirmed: Email Not confirmed
+      locked: Locked
+      not_critical: Not critical
+      read: Read
+      unlocked: Unlocked
+      unread: Unread
+    hierarchy:
+      no_child: Has no children
+      no_parent: Has no parent
+    list_or: "%{head} or %{last}"
+    none: "(None)"
+    operators:
+      anything_except: 'anything except '
+      between: 'between '
+      like: 'like '
+      not_equal: 'not '
+      one_of: 'one of '
+      over: 'over '
+      under: 'under '
+    range: "%{min} and %{max}"
+    sentence: "%{attribute}: %{operator}%{values}"
+    status: 'Status: %{value}'
+    system: System
+    tags: 'Tags: %{list}'
+  select_box:
+    no_execution_servers_html: <strong style="color:red">No Execution Servers Available</strong>
+    offline_suffix: " (offline)"
+    storage_groups:
+      service_storage: Service Storage
+      user_storage: User Storage
+    task_status_groups:
+      failed: Failed
+      other: Other
+      recovering: Recovering
+      restarting: Restarting
+      standard_cycle: Standard Cycle
+      waiting: Waiting
+    user_status_groups:
+      active_users: Active users
+      locked_users: Locked users
   show_table:
-    info: "Info"
-    initial_error: "Error: the form helper provided is not associated with our object!"
+    info: Info
+    initial_error: 'Error: the form helper provided is not associated with our object!'
+  task_form:
+    cluster: The name of the execution server
+    date: 'The current date in this format: YYYY-MM-DD'
+    run_number: A numeric run number that increases everytime the task is restarted, initially set to '1'
+    task_id: A unique number ID for the task, which doesn't change if the task is restarted
+    time: 'The current time in this format: HH:MM:SS'
   userfiles:
     count: " (%{count} files)"
   users:
-    normal: "Normal user"
-    site_manager: "Site manager"
-    admin: "Administrator"
-    automated: "Automated user"
-  task_form:
-    date: "The current date in this format: YYYY-MM-DD"
-    time: "The current time in this format: HH:MM:SS"
-    task_id: "A unique number ID for the task, which doesn't change if the task is restarted"
-    run_number: "A numeric run number that increases everytime the task is restarted, initially set to '1'"
-    cluster: "The name of the execution server"
-  select_box:
-    storage_groups:
-      service_storage: "Service Storage"
-      user_storage:    "User Storage"
-    task_status_groups:
-      standard_cycle: "Standard Cycle"
-      waiting:        "Waiting"
-      failed:         "Failed"
-      restarting:     "Restarting"
-      recovering:     "Recovering"
-      other:          "Other"
-    no_execution_servers_html: "<strong style=\"color:red\">No Execution Servers Available</strong>"
-    offline_suffix:       " (offline)"
-    user_status_groups:
-      active_users: "Active users"
-      locked_users: "Locked users"
-  scope_filters:
-    sentence: "%{attribute}: %{operator}%{values}"
-    none:     "(None)"
-    system:   "System"
-    list_or:  "%{head} or %{last}"
-    range:    "%{min} and %{max}"
-    attributes:
-      project: "Project"
-      server:  "Server"
-      version: "Version"
-    operators:
-      not_equal:       "not "
-      over:            "over "
-      under:           "under "
-      one_of:          "one of "
-      anything_except: "anything except "
-      like:            "like "
-      between:         "between "
-    flags:
-      critical:            "Critical"
-      not_critical:        "Not critical"
-      read:                "Read"
-      unread:              "Unread"
-      locked:              "Locked"
-      unlocked:            "Unlocked"
-      email_confirmed:     "Email Confirmed"
-      email_not_confirmed: "Email Not confirmed"
-    status: "Status: %{value}"
-    tags:   "Tags: %{list}"
-    hierarchy:
-      no_child:  "Has no children"
-      no_parent: "Has no parent"
+    admin: Administrator
+    automated: Automated user
+    normal: Normal user
+    site_manager: Site manager
+  zenodo:
+    deposit: Deposit %{id}
+    sandbox_deposit: " (sandbox)"

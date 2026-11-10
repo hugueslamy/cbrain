@@ -1,32 +1,53 @@
+---
 en:
   background_activities:
-    common:
-      dynamic_items_list: "(Dynamic items list)"
-    background_activity_table:
-      toggles:
-        about: "About"
-      submits:
-        cancel_activities: "Cancel Activities"
-        suspend_activities: "Suspend Activities"
-        unsuspend_activities: "Unsuspend Activities"
-        destroy_activities: "Destroy Activities"
-        activate_now: "Activate Now!"
-        retry_failed: "Retry Failed"
-      confirms:
-        cancel: "Are you sure you want to cancel the selected background activities?"
-        suspend: "Are you sure you want to suspend the selected background activities?"
-        unsuspend: "Are you sure you want to reactivate the selected background activities?"
-        destroy: "Are you sure you want to destroy the selected background activities?"
-        activate: "Are you sure you want to activate the selected background activities?"
-        retry: "Are you sure you want to retry the failed items of the selected background activities?"
-      links:
-        create_scheduled: "Create New Scheduled Activity"
-        hide_scheduled: "Hide Scheduled"
-        refresh_list: "Refresh This List"
-        show: "Show"
+    RubyRunner:
       legends:
-        about: "About Background Activities"
+        ruby_code: Ruby Code
+    background_activity_table:
+      columns:
+        activity_type: Activity Type
+        last_update: Last Updated
+        progress: Progress
+        repeat: Repeat
+        retries: Retries
+        scheduled_at: Scheduled At
+        server: Server
+        show: Show
+        status: Status
+        user: User
+      confirms:
+        activate: Are you sure you want to activate the selected background activities?
+        cancel: Are you sure you want to cancel the selected background activities?
+        destroy: Are you sure you want to destroy the selected background activities?
+        retry: Are you sure you want to retry the failed items of the selected background activities?
+        suspend: Are you sure you want to suspend the selected background activities?
+        unsuspend: Are you sure you want to reactivate the selected background activities?
+      items_count:
+        one: "(%{count} item)"
+        other: "(%{count} items)"
+      labels:
+        type_filter: "%{label} (of %{base})"
+      legends:
+        about: About Background Activities
+      links:
+        create_scheduled: Create New Scheduled Activity
+        hide_scheduled: Hide Scheduled
+        refresh_list: Refresh This List
+        show: Show
+      on_word: 'on'
       paragraphs:
+        about_admin_html: |
+          <p class="long_paragraphs">
+          As an admin, you can create maintenance activities that can be
+          scheduled for later. See the accompanying form for more help. You
+          can also suspend activities; these are resumable. You can suspend
+          activities that are in progress, or scheduled in the future.
+        about_general_bottom_html: |
+          <p class="long_paragraphs">
+          The progress bars in this page are <strong>not live</strong>, so
+          you need to click the <em>Refresh</em> button to get an update
+          on the progress of your activities.
         about_general_top_html: |
           <p class="long_paragraphs">
           This page shows "background activities" as progress bars. Each
@@ -45,33 +66,9 @@ en:
           <p class="long_paragraphs">
           Older, finished "background activities" are generally cleaned
           up after one week and will disappear from this list.
-        about_admin_html: |
-          <p class="long_paragraphs">
-          As an admin, you can create maintenance activities that can be
-          scheduled for later. See the accompanying form for more help. You
-          can also suspend activities; these are resumable. You can suspend
-          activities that are in progress, or scheduled in the future.
-        about_general_bottom_html: |
-          <p class="long_paragraphs">
-          The progress bars in this page are <strong>not live</strong>, so
-          you need to click the <em>Refresh</em> button to get an update
-          on the progress of your activities.
-      columns:
-        user: "User"
-        server: "Server"
-        status: "Status"
-        activity_type: "Activity Type"
-        scheduled_at: "Scheduled At"
-        repeat: "Repeat"
-        retries: "Retries"
-        last_update: "Last Updated"
-        progress: "Progress"
-        show: "Show"
-      labels:
-        type_filter: "%{label} (of %{base})"
-      scheduled_at:
-        in_time: "(in %{time})"
-        overdue_by: "(overdue by %{time})"
+      progress_counts:
+        failed: Failed=%{count}
+        ok: OK=%{count}
       retries:
         allowed:
           one: "%{count} retry allowed"
@@ -79,129 +76,133 @@ en:
         next:
           one: "(next with %{count} second delay)"
           other: "(next with %{count} seconds delay)"
-      on_word: "on"
-      items_count:
-        one: "(%{count} item)"
-        other: "(%{count} items)"
-      progress_counts:
-        ok:     "OK=%{count}"
-        failed: "Failed=%{count}"
+      scheduled_at:
+        in_time: "(in %{time})"
+        overdue_by: "(overdue by %{time})"
+      submits:
+        activate_now: Activate Now!
+        cancel_activities: Cancel Activities
+        destroy_activities: Destroy Activities
+        retry_failed: Retry Failed
+        suspend_activities: Suspend Activities
+        unsuspend_activities: Unsuspend Activities
+      toggles:
+        about: About
       tooltips:
         messages: "(Messages)"
-    RubyRunner:
-      legends:
-        ruby_code: "Ruby Code"
+    common:
+      dynamic_items_list: "(Dynamic items list)"
     index:
-      title: "Background Activities"
+      title: Background Activities
     new:
-      title: "Schedule Maintenance Activity"
-      headings:
-        main: "Schedule Maintenance Activity"
+      days_ago: days ago
       errors:
-          activity: "activity"
+        activity: activity
+      headings:
+        main: Schedule Maintenance Activity
       labels:
-        repeat: "Repeat Frequency"
-        remove_task_workdirs: "Remove Task Workdirs"
-        file_custom_filter: "File Custom Filter:"
-        task_custom_filter: "Task Custom Filter:"
-        clean_cache: "Clean DataProvider Caches"
-        last_accessed: "Files last accessed at least:"
-        belonging_users: "Belonging to users:"
-        not_users: "But not to users:"
-        of_type: "Of type:"
-        not_type: "But not type:"
-        erase_bacs: "Erase Background Activities"
-        finished_older: "Finished activities older than:"
-        verify_dp: "Verify DataProvider Connectivity"
-        fake_activity: "Fake Activity Tests"
-        min_seconds: "Minimum seconds:"
-        max_seconds: "Maximum seconds:"
-        num_oks: "Number of OKs:"
-        num_fails: "Number of FAILs:"
-        num_excs: "Number of EXCs:"
-        ruby_runner: "Arbitrary Ruby Code Runner"
-        prepare: "prepare_dynamic_items() : Mandatory. Must set the list of items with self.items=[] ."
-        before: "before_first_item() : Optional."
-        process_html: "process() : Mandatory. Must return <strong>[ true, nil ]</strong> when something is processed properly, and <strong>[ false, message ]</strong> otherwise."
-        after: "after_last_item() : Optional."
-        server: "Portal or Execution Server"
-        start_date: "Initial Start Date"
+        after: 'after_last_item() : Optional.'
+        archive_task_workdirs: Archive Task Workdirs
+        before: 'before_first_item() : Optional.'
+        belonging_users: 'Belonging to users:'
+        clean_cache: Clean DataProvider Caches
+        compress: Compress
+        copy: Copy
+        erase_bacs: Erase Background Activities
+        fake_activity: Fake Activity Tests
+        file_custom_filter: 'File Custom Filter:'
+        finished_older: 'Finished activities older than:'
+        last_accessed: 'Files last accessed at least:'
+        max_seconds: 'Maximum seconds:'
+        min_seconds: 'Minimum seconds:'
+        move: Move
+        not_type: 'But not type:'
+        not_users: 'But not to users:'
+        num_excs: 'Number of EXCs:'
+        num_fails: 'Number of FAILs:'
+        num_oks: 'Number of OKs:'
+        of_type: 'Of type:'
+        prepare: 'prepare_dynamic_items() : Mandatory. Must set the list of items with self.items=[] .'
+        process_html: 'process() : Mandatory. Must return <strong>[ true, nil ]</strong> when something is processed properly, and <strong>[ false, message ]</strong> otherwise.'
+        remove_task_workdirs: Remove Task Workdirs
+        repeat: Repeat Frequency
+        ruby_runner: Arbitrary Ruby Code Runner
+        server: Portal or Execution Server
+        start_date: Initial Start Date
         start_now_html: "( Or %{checkbox} right away )"
-        move: "Move"
-        copy: "Copy"
-        archive_task_workdirs: "Archive Task Workdirs"
-        compress: "Compress"
-        uncompress: "Uncompress"
-      selects:
-        data_provider: "(Select a Data Provider)"
-        filter: "(Select one of your filters)"
-        dps: "(Select Data Providers)"
+        task_custom_filter: 'Task Custom Filter:'
+        uncompress: Uncompress
+        verify_dp: Verify DataProvider Connectivity
+      legends:
+        files: Files
+        filter: 'Dynamic Items Selection: Files or Tasks'
+        or_word: or
       paragraphs:
-        remember_file_filter_html: |
-          This activity type is only for experienced CBRAIN system developers
-          who understands the <strong>BackgroundActivity</strong> framework.
-        move_crush: "Crush files at destination if they exist:"
-        filter_intro: "These two selection boxes allow you to specify one of your custom filters, either for files or for tasks."
-        for_files_html: "For activities that involve <strong>files</strong>:"
-        for_tasks_html: "For activities that involve <strong>tasks</strong>:"
-        move_to: "To:"
-        remember_task_filter_html: "Remember to select a <strong>task</strong> custom filter in the Dynamic Items section below."
         archive_blank_note: "(Leave blank to archive directly in the work directories)"
-        ruby_runner_intro_html: "This activity type is only for experienced CBRAIN system developers who understands the <strong>BackgroundActivity</strong> framework."
+        filter_intro: These two selection boxes allow you to specify one of your custom filters, either for files or for tasks.
+        for_files_html: 'For activities that involve <strong>files</strong>:'
+        for_tasks_html: 'For activities that involve <strong>tasks</strong>:'
+        move_crush: 'Crush files at destination if they exist:'
+        move_to: 'To:'
         process_explanation: |
           Consider adding a short description of what your RubyRunner code does
           on the very first line of comment; this will be shown as a description
           of the BackgroundActivity within the index page.
-      repeat_options:
-        prompt: "(How often and when to repeat)"
-        one_shot: "One Shot"
-        every_30min: "Every 30 minutes"
-        every_hour: "Every hour"
-        every_12h: "Every 12 hours"
-        every_24h: "Every 24 hours"
-        tomorrow: "Tomorrow and everyday at..."
-        monday: "Mondays at..."
-        tuesday: "Tuesdays at..."
-        wednesday: "Wednesdays at..."
-        thursday: "Thursdays at..."
-        friday: "Fridays at..."
-        saturday: "Saturdays at..."
-        sunday: "Sundays at..."
-      legends:
-        filter: "Dynamic Items Selection: Files or Tasks"
-        or_word: "or"
-        files: "Files"
+        remember_file_filter_html: |
+          This activity type is only for experienced CBRAIN system developers
+          who understands the <strong>BackgroundActivity</strong> framework.
+        remember_task_filter_html: Remember to select a <strong>task</strong> custom filter in the Dynamic Items section below.
+        ruby_runner_intro_html: This activity type is only for experienced CBRAIN system developers who understands the <strong>BackgroundActivity</strong> framework.
       repeat_at_html: "(For <strong>at...</strong>:"
-      days_ago: "days ago"
-      system_dps: "System Data Providers:"
-      user_dps: "User Data Providers:"
-      submit: "Schedule new activity"
+      repeat_options:
+        every_12h: Every 12 hours
+        every_24h: Every 24 hours
+        every_30min: Every 30 minutes
+        every_hour: Every hour
+        friday: Fridays at...
+        monday: Mondays at...
+        one_shot: One Shot
+        prompt: "(How often and when to repeat)"
+        saturday: Saturdays at...
+        sunday: Sundays at...
+        thursday: Thursdays at...
+        tomorrow: Tomorrow and everyday at...
+        tuesday: Tuesdays at...
+        wednesday: Wednesdays at...
+      selects:
+        data_provider: "(Select a Data Provider)"
+        dps: "(Select Data Providers)"
+        filter: "(Select one of your filters)"
+      submit: Schedule new activity
+      system_dps: 'System Data Providers:'
+      title: Schedule Maintenance Activity
+      user_dps: 'User Data Providers:'
     show:
-      headings:
-        main: "Background Activity"
-      cells:
-        type: "Type"
-        status: "Status"
-        user: "User"
-        execution_server: "Execution Server"
-        total_items: "Total Number Of Items"
-        num_successes: "Number Of Successes"
-        num_processed: "Number Of Items Processed"
-        num_failures: "Number Of Failures"
-      legends:
-        items: "Items"
       all_of_them: "%{count} (All of them)"
+      cells:
+        execution_server: Execution Server
+        num_failures: Number Of Failures
+        num_processed: Number Of Items Processed
+        num_successes: Number Of Successes
+        status: Status
+        total_items: Total Number Of Items
+        type: Type
+        user: User
+      headings:
+        main: Background Activity
+      legends:
+        items: Items
+      none: 0 (None)
       none_question: "(None ?)"
-      none: "0 (None)"
-      none_yet: "0 (None yet!)"
+      none_yet: 0 (None yet!)
     statuses:
-      in_progress:         "In progress"
-      completed:           "Completed"
-      partially_completed: "Partially completed"
-      failed:              "Failed"
-      internal_error:      "Internal error"
-      suspended:           "Suspended"
-      suspended_scheduled: "Suspended scheduled"
-      scheduled:           "Scheduled"
-      cancelled:           "Cancelled"
-      cancelled_scheduled: "Cancelled scheduled"
+      cancelled: Cancelled
+      cancelled_scheduled: Cancelled scheduled
+      completed: Completed
+      failed: Failed
+      in_progress: In progress
+      internal_error: Internal error
+      partially_completed: Partially completed
+      scheduled: Scheduled
+      suspended: Suspended
+      suspended_scheduled: Suspended scheduled
